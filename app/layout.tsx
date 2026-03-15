@@ -1,6 +1,16 @@
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Fraunces } from "next/font/google";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+  },
+};
 
 const inter = Inter({
   subsets: ["latin"],

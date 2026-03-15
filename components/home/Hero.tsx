@@ -20,14 +20,25 @@ export default function Hero({ dict, locale = "en" }: HeroProps) {
             className="font-display text-display-xl text-ink text-balance mb-9 leading-[1.04]"
           >
             {dict.line1}
-            <br />
-            {dict.line2}
-            <br />
-            <span className="text-ink-tertiary">{dict.accent}</span>
+            {dict.line2 && (
+              <>
+                <br />
+                {dict.line2}
+              </>
+            )}
+            {dict.accent && (
+              <>
+                <br />
+                <span className="text-ink-tertiary">{dict.accent}</span>
+              </>
+            )}
           </h1>
-          <p className="text-ink-secondary text-lg md:text-xl leading-relaxed max-w-[540px] text-balance mb-11">
+          <p className={`text-ink-secondary text-lg md:text-xl leading-relaxed max-w-[540px] text-balance ${dict.proof ? "mb-3" : "mb-11"}`}>
             {dict.description}
           </p>
+          {dict.proof && (
+            <p className="text-label text-ink-tertiary mb-11">{dict.proof}</p>
+          )}
           <div className="flex flex-wrap items-center gap-3">
             <Button href={`/${locale}/projects`} size="lg">
               {dict.viewProjects}

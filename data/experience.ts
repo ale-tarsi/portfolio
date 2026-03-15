@@ -23,12 +23,14 @@ export const experience: ExperienceItem[] = [
     location: "Remote, Italy",
     type: "work",
     description:
-      "Contributed to the development of web and mobile applications within a product team. Worked primarily with Angular and Ionic, integrating REST APIs and translating design assets into functional, maintainable interfaces.",
+      "Frontend development across multiple products in an IoT and building automation company. Contributed to web management platforms, a cross-platform mobile app (iOS/Android), real-time control interfaces, and a corporate website revamp — working with Angular, React, Ionic, and Next.js across a range of enterprise clients.",
     highlights: [
-      "Built and maintained feature modules across web and mobile surfaces using Angular and Ionic",
-      "Integrated RESTful APIs in collaboration with backend engineers",
-      "Translated design assets into responsive, accessible UI components",
-      "Participated in UI/UX review cycles to keep implementation aligned with design intent",
+      "Built the frontend for a thermal plant management webapp with real-time WebSocket data, a graphical control interface, and weekly scheduling of heating and cooling operations",
+      "Developed feature modules for the Gabetti Real Estate mobile app (Ionic, iOS/Android), including onboarding flows, a corporate welfare integration via external REST API, and a maintenance request section",
+      "Implemented bulk action functionality and resolved critical demo-blocking bugs for an enterprise RSA (assisted living) management webapp",
+      "Contributed to the Klima IoT climate control system — integrating room-level device bindings and building seasonal switching (summer/winter) with both single and bulk operation support",
+      "Led the full revamp of iooota.com using Next.js, TypeScript, and Tailwind CSS, restructuring content for B2B communication with SEO and metadata improvements",
+      "Designed UI mockups for the thermal plant control interface, presented internally and used as the implementation reference across the team",
     ],
   },
   {
