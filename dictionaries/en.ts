@@ -164,6 +164,9 @@ const en = {
     sentLabel: "Sent",
     sentTitle: "Message received.",
     sentBody: "I’ll get back to you within a day or two.",
+    errorTitle: "Something went wrong.",
+    errorBody: "The message couldn’t be sent. Please try again or write me directly at alessandro.tarsi@proton.me",
+    errorRetry: "Try again",
     contactFormAriaLabel: "Contact form",
     metaTitle: "Contact",
     metaDescription:

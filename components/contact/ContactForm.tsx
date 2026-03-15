@@ -24,10 +24,40 @@ export default function ContactForm({ dict }: ContactFormProps) {
     e.preventDefault();
     setState("submitting");
 
-    // Simulate async submission — replace with real handler (e.g. Resend, Formspree)
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setState("success");
+    try {
+      const res = await fetch("https://formspree.io/f/mnjgbyzg", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (res.ok) {
+        setState("success");
+      } else {
+        setState("error");
+      }
+    } catch {
+      setState("error");
+    }
   };
+
+  if (state === "error") {
+    return (
+      <div className="border border-border rounded-xl p-8 md:p-12 bg-ink/[0.02]">
+        <p className="text-ink text-lg font-medium mb-2 tracking-[-0.01em]">
+          {dict.errorTitle}
+        </p>
+        <p className="text-sm text-ink-secondary leading-relaxed mb-6">
+          {dict.errorBody}
+        </p>
+        <button
+          onClick={() => setState("idle")}
+          className="text-sm font-semibold text-ink underline underline-offset-4"
+        >
+          {dict.errorRetry}
+        </button>
+      </div>
+    );
+  }
 
   if (state === "success") {
     return (

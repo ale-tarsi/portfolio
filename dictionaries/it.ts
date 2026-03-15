@@ -166,6 +166,9 @@ const it: Dictionary = {
     sentLabel: "Inviato",
     sentTitle: "Messaggio ricevuto.",
     sentBody: "Ti risponderò entro uno o due giorni.",
+    errorTitle: "Qualcosa è andato storto.",
+    errorBody: "Il messaggio non è stato inviato. Riprova oppure scrivimi direttamente a alessandro.tarsi@proton.me",
+    errorRetry: "Riprova",
     contactFormAriaLabel: "Modulo di contatto",
     metaTitle: "Contatti",
     metaDescription:
