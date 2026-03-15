@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: "Inter";
+    --font-fraunces: "Fraunces";
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-surface text-ink;
+  }
+
+  ::selection {
+    @apply bg-ink text-surface;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ink rounded-sm;
+  }
+}
+
+@layer utilities {
+  .container-wide {
+    @apply mx-auto w-full max-w-[1200px] px-6 md:px-10 lg:px-16;
+  }
+
+  .container-narrow {
+    @apply mx-auto w-full max-w-[760px] px-6 md:px-10;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+
+  .section-padding-sm {
+    @apply py-14 md:py-20;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .border-hairline {
+    @apply border border-border;
+  }
+
+  .link-underline {
+    @apply underline underline-offset-[3px] decoration-1 decoration-border-strong hover:decoration-ink transition-[text-decoration-color] duration-150;
+  }
+
+  .text-label {
+    @apply text-xs font-medium uppercase tracking-widest text-ink-tertiary;
+  }
+}
