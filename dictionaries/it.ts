@@ -12,11 +12,11 @@ const it: Dictionary = {
   },
   hero: {
     badge: "Disponibile \u2014 Preferibilmente in remoto",
-    line1: "Sono arrivato all\u2019ingegneria",
-    line2: "attraverso il design.",
+    line1: "Dal design",
+    line2: "al codice.",
     accent: "Si vede nel lavoro.",
     description:
-      "Sviluppatore Frontend e Full Stack con una base nel product design. Costruisco interfacce e sistemi interni dove chiarezza strutturale e qualit\u00e0 ingegneristica sono la stessa preoccupazione \u2014 non due ambiti in conflitto.",
+      "Sviluppatore Frontend e Full Stack con una base nel product design. Costruisco interfacce e sistemi interni dove chiarezza strutturale e qualit\u00e0 ingegneristica sono la stessa priorit\u00e0 \u2014 non obiettivi in conflitto.",
     viewProjects: "Vedi i progetti",
     getInTouch: "Contattami",
   },
@@ -24,7 +24,7 @@ const it: Dictionary = {
     label: "Background",
     p1: "Il Design della Comunicazione mi ha dato un framework per capire perch\u00e9 le interfacce si comportano nel modo in cui lo fanno \u2014 non solo come appaiono, ma come strutturano le decisioni, guidano l\u2019attenzione e falliscono le persone quando la logica sottostante non \u00e8 chiara.",
     p2: "Mi sono avvicinato all\u2019ingegneria perch\u00e9 restare sul lato design del passaggio di consegne significava perdere controllo esattamente nel momento in cui le cose vanno storte. La maggior parte dei problemi di prodotto non riguardano ci\u00f2 che era stato inteso \u2014 ma ci\u00f2 che \u00e8 successo nei cicli di implementazione successivi. Volevo far parte di quei cicli.",
-    p3: "Da allora ho costruito piattaforme di gestione operativa, pipeline di dati finanziari e sistemi di automazione del workflow, oltre alla consegna frontend su diversi prodotti web e propriet\u00e0 digitali aziendali. Domini di problemi diversi \u2014 ma un pattern costante: le decisioni tecniche che contano di pi\u00f9 sono solitamente quelle pi\u00f9 vicine all\u2019utente.",
+    p3: "Da allora ho costruito piattaforme di gestione operativa, pipeline di dati finanziari e sistemi di automazione del workflow, oltre alla consegna frontend su diverse propriet\u00e0 web. Domini di problemi diversi \u2014 ma un pattern costante: le decisioni tecniche che contano di pi\u00f9 sono solitamente quelle pi\u00f9 vicine all\u2019utente.",
   },
   selectedProjects: {
     label: "Lavori Selezionati",
@@ -75,13 +75,13 @@ const it: Dictionary = {
     headingLine2: "Poi ho programmato.",
     headingAccent: "Penso ancora a entrambe le cose.",
     p1: "Ho studiato Product Design all\u2019Accademia Poliarte di Ancona. Il programma \u00e8 meno incentrato sulla forma visiva e pi\u00f9 su come struttura, gerarchia e flusso di informazioni determinano se qualcosa funziona davvero \u2014 non solo se sembra farlo. Quella prospettiva \u00e8 rimasta.",
-    p2: "Mi sono avvicinato all\u2019ingegneria del software attraverso la 42 Roma Luiss \u2014 un programma intensivo, basato su progetti, dove si impara costruendo cose reali con vincoli reali. La transizione era deliberata: le decisioni che influenzano maggiormente l\u2019esperienza utente avvengono al momento dell\u2019implementazione, non in un passaggio di consegne di design. Gestione dello stato, logica di interazione, gestione degli errori, fattibilit\u00e0 tecnica \u2014 quelle scelte hanno implicazioni UX e ne volevo la propriet\u00e0.",
-    p3: "Da allora ho lavorato nel frontend engineering in Leonardo S.p.A. e IOOOTA Srl, costruendo interfacce e funzionalit\u00e0 per prodotti web e mobile in team strutturati. Gestisco anche AtavicoLabs \u2014 uno studio indipendente tramite cui mi occupo di sviluppo prodotto, automazione workflow e tooling operativo per team di piccole dimensioni.",
+    p2: "Mi sono avvicinato all\u2019ingegneria del software attraverso la 42 Roma Luiss \u2014 un programma intensivo, basato su progetti, dove si impara costruendo cose reali con vincoli reali. La transizione era deliberata: le decisioni che influenzano maggiormente l\u2019esperienza utente avvengono al momento dell\u2019implementazione, non in un passaggio di consegne di design. Gestione dello stato, logica di interazione, gestione degli errori, fattibilit\u00e0 tecnica \u2014 quelle scelte hanno implicazioni UX e volevo averne la piena responsabilit\u00e0.",
+    p3: "Da allora ho lavorato nel frontend engineering in Leonardo S.p.A. e IOOOTA Srl, costruendo interfacce e funzionalit\u00e0 per prodotti web e mobile in team strutturati. Gestisco anche AtavicoLabs \u2014 uno studio indipendente focalizzato su sviluppo prodotto, automazione dei workflow e tooling operativo per team di piccole dimensioni.",
     p4: "Sto cercando un ruolo Frontend o Full Stack in un team orientato al prodotto \u2014 un posto dove qualit\u00e0 del codice e qualit\u00e0 dell\u2019interfaccia sono intese come lo stesso problema.",
     stackLabel: "Stack",
     valuesLabel: "Come lavoro",
     ctaText:
-      "Leggo attentamente le realt\u00e0 e i ruoli prima di contattare. Se pensi che ci sia una buona compatibilit\u00e0, mi farebbe piacere sentirne parlare.",
+      "Mi informo a fondo su team e ruoli prima di contattare qualcuno. Se pensi che ci sia una buona compatibilit\u00e0, mi farebbe piacere sentirne parlare.",
     ctaButton: "Contattami",
     metaTitle: "Chi sono",
     metaDescription:
@@ -91,7 +91,7 @@ const it: Dictionary = {
     label: "Background",
     heading: "Esperienza & Formazione",
     intro:
-      "Una cronologia di dove ho lavorato, cosa ho costruito e la base accademica che ho costruito prima di passare all\u2019ingegneria.",
+      "Una cronologia di dove ho lavorato, cosa ho costruito e la formazione accademica sviluppata prima di passare all\u2019ingegneria.",
     workLabel: "Lavoro",
     educationLabel: "Formazione",
     ctaText:
@@ -105,11 +105,11 @@ const it: Dictionary = {
     label: "Lavori",
     heading: "Progetti selezionati",
     description:
-      "Una selezione di progetti costruiti end-to-end \u2014 dal tooling organizzativo alle reti neurali e alle applicazioni decentralizzate.",
+      "Una selezione di progetti costruiti end-to-end \u2014 da piattaforme operative e tooling finanziario ad applicazioni full-stack e sistemi con integrazione blockchain.",
     allProjectsLabel: "Tutti i progetti",
     metaTitle: "Progetti",
     metaDescription:
-      "Progetti selezionati nel frontend engineering, sistemi full stack, machine learning e applicazioni blockchain.",
+      "Progetti selezionati nel frontend engineering, piattaforme full-stack, tooling operativo e applicazioni blockchain.",
   },
   projectDetail: {
     allProjects: "\u2190 Tutti i progetti",
@@ -125,6 +125,12 @@ const it: Dictionary = {
     discussText: "Vuoi discutere di questo lavoro?",
     contactLink: "Contattami",
     notFoundTitle: "Progetto non trovato",
+    stackLabel: "Stack",
+    statusCompleted: "Completato",
+    statusInProgress: "In corso",
+    statusArchived: "Archiviato",
+    prevProject: "Precedente",
+    nextProject: "Successivo",
     githubLabel: "GitHub \u2197",
     liveLabel: "Sito live \u2197",
     demoLabel: "Demo \u2197",

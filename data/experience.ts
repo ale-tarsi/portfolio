@@ -38,7 +38,7 @@ export const experience: ExperienceItem[] = [
     location: "Rome, Italy",
     type: "work",
     description:
-      "Three-month internship contributing to a web-based internal event management platform. Worked on the Angular frontend, collaborated with a Java backend team, and applied security-conscious development practices.",
+      "Two-month internship contributing to a web-based internal event management platform. Worked on the Angular frontend, collaborated with a Java backend team, and applied security-conscious development practices.",
     highlights: [
       "Built and refined UI components for an internal event management platform using Angular",
       "Collaborated with a Java backend team to align API contracts and data structures",

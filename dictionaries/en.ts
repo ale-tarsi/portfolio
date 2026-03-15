@@ -14,7 +14,7 @@ const en = {
     line2: "through design.",
     accent: "It shows in the work.",
     description:
-      "Frontend and Full Stack developer with a foundation in product design. I build interfaces and internal systems where structural clarity and engineering quality are the same concern \u2014 not competing ones.",
+      "Frontend and Full Stack developer with a foundation in product design. I build interfaces and internal systems where structural clarity and engineering quality are the same thing \u2014 not competing priorities.",
     viewProjects: "View projects",
     getInTouch: "Get in touch",
   },
@@ -22,7 +22,7 @@ const en = {
     label: "Background",
     p1: "Communication Design gave me a framework for understanding why interfaces behave the way they do \u2014 not just how they look, but how they structure decisions, guide attention, and fail people when the underlying logic is unclear.",
     p2: "I moved into engineering because staying on the design side of the handoff meant losing control at exactly the moment things go wrong. Most product problems aren\u2019t about what was intended \u2014 they\u2019re about what happened in the rounds of implementation that followed. I wanted to be in those rounds.",
-    p3: "I\u2019ve since built operational management platforms, financial data pipelines, and workflow automation systems, alongside frontend delivery across multiple product and company web properties. Different problem domains \u2014 but a consistent pattern: the technical decisions that matter most are usually the ones closest to the user.",
+    p3: "I\u2019ve since built operational management platforms, financial data pipelines, and workflow automation systems, alongside frontend delivery across multiple web properties. Different problem domains \u2014 but a consistent pattern: the technical decisions that matter most are usually the ones closest to the user.",
   },
   selectedProjects: {
     label: "Selected Work",
@@ -74,7 +74,7 @@ const en = {
     headingAccent: "Still thinking about both.",
     p1: "I studied Product Design at Accademia Poliarte in Ancona. The programme is less about visual form than about how structure, hierarchy, and information flow determine whether something actually works \u2014 not just whether it looks like it does. That framing stayed.",
     p2: "I moved into software engineering through 42 Roma Luiss \u2014 an intensive, project-based programme where you learn by building real things under real constraints. The transition was deliberate: the decisions that most affect user experience happen at implementation time, not in a design handoff. State handling, interaction logic, error surfacing, technical feasibility \u2014 those choices have UX implications, and I wanted ownership over them.",
-    p3: "Since then I\u2019ve worked across frontend engineering at Leonardo S.p.A. and IOOOTA Srl, building interfaces and features for web and mobile products in structured product teams. I also run AtavicoLabs \u2014 an independent studio through which I handle product development, workflow automation, and operational tooling for small teams.",
+    p3: "Since then I\u2019ve worked across frontend engineering at Leonardo S.p.A. and IOOOTA Srl, building interfaces and features for web and mobile products in structured product teams. I also run AtavicoLabs \u2014 an independent studio focused on product development, workflow automation, and operational tooling for small teams.",
     p4: "I\u2019m looking for a Frontend or Full Stack role in a product-focused team \u2014 somewhere that code quality and interface quality are understood as the same problem.",
     stackLabel: "Stack",
     valuesLabel: "How I work",
@@ -89,7 +89,7 @@ const en = {
     label: "Background",
     heading: "Experience & Education",
     intro:
-      "A timeline of where I\u2019ve worked, what I\u2019ve built, and the academic foundation I built before moving into engineering.",
+      "A timeline of where I\u2019ve worked, what I\u2019ve built, and the academic foundation I developed before moving into engineering.",
     workLabel: "Work",
     educationLabel: "Education",
     ctaText:
@@ -103,11 +103,11 @@ const en = {
     label: "Work",
     heading: "Selected projects",
     description:
-      "A focused set of projects built end-to-end \u2014 ranging from organizational tooling to neural networks and decentralized applications.",
+      "A focused set of projects built end-to-end \u2014 from operational platforms and financial tooling to full-stack applications and blockchain-integrated systems.",
     allProjectsLabel: "All projects",
     metaTitle: "Projects",
     metaDescription:
-      "Selected projects across frontend engineering, full stack systems, machine learning, and blockchain applications.",
+      "Selected projects across frontend engineering, full-stack platforms, operational tooling, and blockchain applications.",
   },
   projectDetail: {
     allProjects: "\u2190 All projects",
@@ -123,6 +123,12 @@ const en = {
     discussText: "Want to discuss this work?",
     contactLink: "Get in touch",
     notFoundTitle: "Project not found",
+    stackLabel: "Stack",
+    statusCompleted: "Completed",
+    statusInProgress: "In Progress",
+    statusArchived: "Archived",
+    prevProject: "Previous",
+    nextProject: "Next",
     githubLabel: "GitHub \u2197",
     liveLabel: "Live site \u2197",
     demoLabel: "Demo \u2197",

@@ -34,6 +34,27 @@ export async function generateMetadata({
   };
 }
 
+function StatusBadge({
+  status,
+  labels,
+}: {
+  status: string;
+  labels: { statusCompleted: string; statusInProgress: string; statusArchived: string };
+}) {
+  const config: Record<string, { dot: string; text: string }> = {
+    completed:     { dot: "bg-green-500",   text: labels.statusCompleted },
+    "in-progress": { dot: "bg-amber-400",   text: labels.statusInProgress },
+    archived:      { dot: "bg-neutral-400", text: labels.statusArchived },
+  };
+  const { dot, text } = config[status] ?? { dot: "bg-neutral-400", text: status };
+  return (
+    <span className="inline-flex items-center gap-2">
+      <span className={`inline-block w-1.5 h-1.5 rounded-full shrink-0 ${dot}`} aria-hidden="true" />
+      {text}
+    </span>
+  );
+}
+
 export default async function ProjectDetailPage({ params }: PageProps) {
   const { locale, slug } = await params;
   if (!isValidLocale(locale)) notFound();
@@ -44,12 +65,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   const dict = await getDictionary(locale);
   const t = dict.projectDetail;
 
-  const sections = [
-    { key: "overview", label: t.sectionOverview, content: project.body.overview },
-    { key: "context", label: t.sectionContext, content: project.body.context },
-    { key: "approach", label: t.sectionApproach, content: project.body.approach },
-    { key: "outcome", label: t.sectionOutcome, content: project.body.outcome },
-  ];
+  const currentIndex = projects.findIndex((p) => p.slug === slug);
+  const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
+  const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
   return (
     <article className="pt-32 md:pt-40 pb-24">
@@ -60,7 +78,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             href={`/${locale}/projects`}
             className="inline-flex items-center gap-2 text-sm text-ink-secondary hover:text-ink transition-colors duration-150"
           >
-            <span aria-hidden="true">\u2190</span> {t.allProjects.replace("\u2190 ", "")}
+            <span aria-hidden="true">←</span> {t.allProjects.replace("← ", "")}
           </Link>
         </nav>
 
@@ -74,23 +92,20 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               <h1 className="font-display text-display-lg text-ink text-balance mb-4 leading-[1.06]">
                 {project.title}
               </h1>
-              <p className="text-ink-secondary text-base md:text-lg leading-relaxed max-w-[560px] text-balance mb-6">
+              <p className="text-ink-secondary text-base md:text-lg leading-relaxed max-w-[560px] text-balance">
                 {project.subtitle}
               </p>
-              <ul className="flex flex-wrap gap-2" aria-label="Technologies">
-                {project.tags.map((tag) => (
-                  <li key={tag}>
-                    <Tag label={tag} />
-                  </li>
-                ))}
-              </ul>
             </div>
 
-            {/* Cover swatch */}
+            {/* Cover — tech tag cloud */}
             <div
-              className={`${project.coverColor} rounded-xl w-full md:w-64 lg:w-72 h-36 md:h-44 shrink-0`}
+              className={`${project.coverColor} rounded-xl w-full md:w-64 lg:w-72 shrink-0 p-5 flex flex-wrap gap-2 content-start min-h-[9rem]`}
               aria-hidden="true"
-            />
+            >
+              {project.tags.map((tag) => (
+                <Tag key={tag} label={tag} variant="muted" />
+              ))}
+            </div>
           </div>
         </header>
 
@@ -98,7 +113,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
         {/* Body */}
         <div className="grid md:grid-cols-[220px_1fr] gap-12 md:gap-20 mt-10 md:mt-14">
-          {/* Sidebar — quick info */}
+          {/* Sidebar */}
           <aside aria-label="Project metadata">
             <dl className="flex flex-col gap-5 text-sm sticky top-28">
               <div>
@@ -117,61 +132,78 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 <dt className="text-xs font-semibold uppercase tracking-widest text-ink-tertiary mb-1">
                   {t.statusLabel}
                 </dt>
-                <dd className="text-ink-secondary capitalize">
-                  {project.status}
+                <dd className="text-ink-secondary">
+                  <StatusBadge status={project.status} labels={t} />
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs font-semibold uppercase tracking-widest text-ink-tertiary mb-2">
+                  {t.stackLabel}
+                </dt>
+                <dd>
+                  <ul className="flex flex-wrap gap-1.5" aria-label="Technologies">
+                    {project.tags.map((tag) => (
+                      <li key={tag}>
+                        <Tag label={tag} variant="muted" />
+                      </li>
+                    ))}
+                  </ul>
                 </dd>
               </div>
               {project.links && (
-                <div className="pt-2 flex flex-col gap-2">
+                <div className="pt-1 flex flex-col gap-1">
                   {project.links.github && (
-                    <a
+                    <Button
                       href={project.links.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-ink link-underline"
-                      aria-label={t.githubAriaLabel}
+                      external
+                      variant="ghost"
+                      size="sm"
+                      ariaLabel={t.githubAriaLabel}
                     >
                       {t.githubLabel}
-                    </a>
+                    </Button>
                   )}
                   {project.links.live && (
-                    <a
+                    <Button
                       href={project.links.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-ink link-underline"
-                      aria-label={t.liveAriaLabel}
+                      external
+                      variant="ghost"
+                      size="sm"
+                      ariaLabel={t.liveAriaLabel}
                     >
                       {t.liveLabel}
-                    </a>
+                    </Button>
                   )}
                   {project.links.demo && (
-                    <a
+                    <Button
                       href={project.links.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-ink link-underline"
-                      aria-label={t.demoAriaLabel}
+                      external
+                      variant="ghost"
+                      size="sm"
+                      ariaLabel={t.demoAriaLabel}
                     >
                       {t.demoLabel}
-                    </a>
+                    </Button>
                   )}
                 </div>
               )}
             </dl>
           </aside>
 
-          {/* Main content */}
-          <div className="flex flex-col gap-12">
-            {sections.map((s) => (
-              <Section key={s.key} heading={s.label}>
-                <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
-                  {s.content}
-                </p>
-              </Section>
-            ))}
+          {/* Main content — narrative order */}
+          <div className="flex flex-col gap-14">
+            <Section heading={t.sectionOverview}>
+              <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
+                {project.body.overview}
+              </p>
+            </Section>
 
-            {/* Challenges */}
+            <Section heading={t.sectionContext}>
+              <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
+                {project.body.context}
+              </p>
+            </Section>
+
             <Section heading={t.sectionChallenges}>
               <ul className="flex flex-col gap-6" role="list">
                 {project.body.challenges.map((c, i) => (
@@ -186,25 +218,68 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 ))}
               </ul>
             </Section>
+
+            <Section heading={t.sectionApproach}>
+              <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
+                {project.body.approach}
+              </p>
+            </Section>
+
+            <Section heading={t.sectionOutcome}>
+              <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
+                {project.body.outcome}
+              </p>
+            </Section>
           </div>
         </div>
 
         <Divider />
 
-        {/* Navigation to other projects */}
-        <nav
-          className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5"
-          aria-label="Project navigation"
-        >
-          <Button href={`/${locale}/projects`} variant="ghost" size="md">
-            {t.backToProjects}
-          </Button>
-          <p className="text-sm text-ink-secondary">
-            {t.discussText}{" "}
-            <Link href={`/${locale}/contact`} className="text-ink link-underline">
-              {t.contactLink}
-            </Link>
-          </p>
+        {/* Footer nav */}
+        <nav className="flex flex-col gap-6" aria-label="Project navigation">
+          {(prevProject || nextProject) && (
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-4 pb-6 border-b border-border">
+              {prevProject ? (
+                <Link
+                  href={`/${locale}/projects/${prevProject.slug}`}
+                  className="group flex flex-col gap-1"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-widest text-ink-tertiary">
+                    ← {t.prevProject}
+                  </span>
+                  <span className="text-sm text-ink group-hover:text-ink-secondary transition-colors duration-150">
+                    {prevProject.title}
+                  </span>
+                </Link>
+              ) : (
+                <div />
+              )}
+              {nextProject && (
+                <Link
+                  href={`/${locale}/projects/${nextProject.slug}`}
+                  className="group flex flex-col gap-1 sm:items-end"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-widest text-ink-tertiary">
+                    {t.nextProject} →
+                  </span>
+                  <span className="text-sm text-ink group-hover:text-ink-secondary transition-colors duration-150">
+                    {nextProject.title}
+                  </span>
+                </Link>
+              )}
+            </div>
+          )}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+            <Button href={`/${locale}/projects`} variant="ghost" size="md">
+              {t.backToProjects}
+            </Button>
+            <p className="text-sm text-ink-secondary">
+              {t.discussText}{" "}
+              <Link href={`/${locale}/contact`} className="text-ink link-underline">
+                {t.contactLink}
+              </Link>
+            </p>
+          </div>
         </nav>
       </div>
     </article>
@@ -223,7 +298,7 @@ function Section({
     <section aria-labelledby={id}>
       <h2
         id={id}
-        className="text-xs font-semibold uppercase tracking-widest text-ink-tertiary mb-4"
+        className="text-base font-semibold text-ink mb-4 tracking-[-0.01em]"
       >
         {heading}
       </h2>

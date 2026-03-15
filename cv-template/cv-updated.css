@@ -1,0 +1,274 @@
+:root {
+  --paper: #ffffff;
+  --bg: #efefec;
+  --ink: #111111;
+  --text: #2c2c2c;
+  --muted: #626262;
+  --soft: #888888;
+  --hairline: #dfdfdb;
+  --page-w: 210mm;
+  --page-h: 297mm;
+  --font-sans: Inter, "SF Pro Display", "Neue Haas Grotesk Text Pro", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration: none; }
+p, h1, h2, h3 { margin: 0; }
+
+.page {
+  width: var(--page-w);
+  min-height: var(--page-h);
+  margin: 18px auto;
+  padding: 15mm 15mm 11mm;
+  background: var(--paper);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.07);
+}
+
+.hero { padding-bottom: 7mm; }
+.hero-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8mm;
+  margin-bottom: 10mm;
+}
+
+.eyebrow,
+.section-label,
+.mini-label,
+.contact-list span,
+.capability-label {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.eyebrow,
+.availability,
+.section-label,
+.mini-label,
+.contact-list span,
+.subline,
+.micro-meta,
+.date,
+.capability-label {
+  color: var(--soft);
+}
+
+.eyebrow, .availability { font-size: 7.7px; }
+
+.hero-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 55mm;
+  gap: 12mm;
+  align-items: start;
+}
+
+.name {
+  font-size: 35px;
+  line-height: 0.94;
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  color: var(--ink);
+  max-width: 120mm;
+}
+.statement {
+  margin-top: 4.8mm;
+  max-width: 118mm;
+  font-size: 11.2px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.hero-aside { display: flex; justify-content: flex-end; }
+.portfolio-card {
+  width: 100%;
+  padding-top: 1.6mm;
+  border-top: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: 18mm 1fr;
+  gap: 4.2mm;
+  align-items: center;
+}
+.portfolio-card img {
+  width: 18mm;
+  height: 18mm;
+  display: block;
+  filter: grayscale(1) contrast(1.06);
+}
+.mini-label { font-size: 6.9px; margin-bottom: 1.5mm; }
+.portfolio-copy p,
+.portfolio-copy a {
+  font-size: 8.4px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.portfolio-copy a { display: inline-block; margin-top: 1.2mm; color: var(--ink); }
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 54mm minmax(0, 1fr);
+  gap: 14mm;
+  padding-top: 7mm;
+}
+.sidebar { padding-top: 1.3mm; }
+
+.sidebar-block + .sidebar-block,
+.editorial-section + .editorial-section,
+.sidebar-entry + .sidebar-entry,
+.timeline-item + .timeline-item,
+.project-item + .project-item {
+  margin-top: 6.3mm;
+}
+.section-label {
+  font-size: 7.4px;
+  font-weight: 600;
+  margin-bottom: 3.7mm;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2.8mm;
+}
+.contact-list li { display: grid; gap: 0.55mm; }
+.contact-list span { font-size: 6.9px; }
+.contact-list strong {
+  font-size: 9.35px;
+  line-height: 1.42;
+  font-weight: 560;
+  color: var(--ink);
+}
+
+.capabilities-block .section-label { margin-bottom: 4.1mm; }
+.capability-group + .capability-group { margin-top: 3.4mm; }
+.capability-label {
+  font-size: 6.8px;
+  margin-bottom: 1.2mm;
+}
+.capability-group p {
+  font-size: 9.15px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.sidebar-entry p,
+.timeline-item p,
+.project-item p,
+.lead {
+  font-size: 9.7px;
+  line-height: 1.62;
+  color: var(--muted);
+}
+.lead {
+  font-size: 10.5px;
+  line-height: 1.68;
+  color: var(--text);
+  max-width: 97%;
+}
+.editorial-intro { margin-bottom: 8mm; }
+
+.entry-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6mm;
+  align-items: start;
+  margin-bottom: 1.9mm;
+}
+.entry-head.compact {
+  display: flex;
+  justify-content: space-between;
+  gap: 5mm;
+  margin-bottom: 1.2mm;
+  align-items: baseline;
+}
+.entry-head.single {
+  justify-content: flex-start;
+}
+.entry-head h3 {
+  font-size: 11.2px;
+  line-height: 1.18;
+  font-weight: 650;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+}
+.entry-copy { max-width: 74%; }
+.experience-head h3 { max-width: 100%; }
+.subline {
+  margin-top: 1.1mm;
+  font-size: 6.95px;
+  letter-spacing: 0.17em;
+}
+.date,
+.entry-head.compact span,
+.micro-meta {
+  font-size: 7.6px;
+  line-height: 1.4;
+}
+.date {
+  white-space: nowrap;
+  padding-top: 0.6mm;
+  text-align: right;
+}
+.timeline-item,
+.project-item { padding-top: 0.15mm; }
+.micro-meta {
+  margin-top: 1.5mm;
+  white-space: normal;
+  letter-spacing: 0.01em;
+}
+.projects-section { margin-top: 1.2mm; }
+
+.footer-note {
+  margin-top: 8mm;
+  padding-top: 3.2mm;
+  border-top: 1px solid var(--hairline);
+  font-size: 7px;
+  line-height: 1.45;
+  color: var(--soft);
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html, body { background: #fff; }
+  .page {
+    margin: 0;
+    box-shadow: none;
+    width: 210mm;
+    min-height: 297mm;
+  }
+}
+
+.sidebar-entry .entry-head.compact h3{white-space:nowrap;font-size:10.2px;letter-spacing:-0.01em;}
+.sidebar-entry p{font-size:8.7px;line-height:1.5;}
+.timeline-item p,.project-item p{font-size:9.1px;line-height:1.5;}
+.lead{font-size:10px;line-height:1.56;}
+.section-label{margin-bottom:2.8mm;}
+.sidebar-block + .sidebar-block,.editorial-section + .editorial-section,.sidebar-entry + .sidebar-entry,.timeline-item + .timeline-item,.project-item + .project-item{margin-top:4.4mm;}
+.editorial-intro{margin-bottom:5.5mm;}
+.footer-note{margin-top:5mm;}
+
+.sidebar-entry .entry-head.compact h3{white-space:nowrap;font-size:10.1px;}
+.timeline-item + .timeline-item, .project-item + .project-item{margin-top:5.1mm;}
+.sidebar-block + .sidebar-block, .editorial-section + .editorial-section, .sidebar-entry + .sidebar-entry{margin-top:5.4mm;}
+.portfolio-copy p{font-size:8.2px;}
+.portfolio-copy a{font-size:8.1px;}
+.projects-section .project-item p{font-size:8.85px;line-height:1.46;}
+.timeline-item p{font-size:8.95px;line-height:1.47;}
+.contact-list strong{font-size:9.15px;}
