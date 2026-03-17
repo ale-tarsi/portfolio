@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/data/projects";
 import ProjectCard from "@/components/projects/ProjectCard";
 import { getDictionary, isValidLocale } from "@/lib/dictionaries";
 
@@ -24,6 +24,7 @@ export default async function ProjectsPage({ params }: PageProps) {
 
   const dict = await getDictionary(locale);
   const t = dict.projects;
+  const projects = getProjects(locale);
 
   return (
     <article className="pt-32 md:pt-40 pb-24">

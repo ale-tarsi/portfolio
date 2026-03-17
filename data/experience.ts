@@ -1,6 +1,6 @@
 import { ExperienceItem, EducationItem, FocusArea } from "@/types";
 
-export const experience: ExperienceItem[] = [
+const experienceEN: ExperienceItem[] = [
   {
     company: "AtavicoLabs",
     role: "Freelance Developer",
@@ -50,7 +50,57 @@ export const experience: ExperienceItem[] = [
   },
 ];
 
-export const education: EducationItem[] = [
+const experienceIT: ExperienceItem[] = [
+  {
+    company: "AtavicoLabs",
+    role: "Freelance Developer",
+    period: "Mag 2024 — Presente",
+    location: "Da remoto",
+    type: "freelance",
+    description:
+      "Studio indipendente focalizzato su sviluppo di prodotti digitali, applicazioni web e automazione dei workflow. Gestisce cicli di consegna completi — dalla definizione dello scope e del design dell'interfaccia all'implementazione e al deployment — per team di piccole dimensioni e prodotti in fase iniziale.",
+    highlights: [
+      "Realizzato strumenti operativi e dashboard interne su misura per i workflow specifici dei team",
+      "Sviluppato sistemi di automazione dei workflow con integrazione di API di terze parti e logica di business personalizzata",
+      "Progettato e implementato interfacce web orientate al prodotto con attenzione a chiarezza e usabilità",
+      "Gestito la consegna end-to-end su più progetti contemporanei, mantenendo qualità e controllo dello scope costanti",
+    ],
+  },
+  {
+    company: "IOOOTA Srl",
+    role: "Frontend Developer",
+    period: "Ott 2024 — Mar 2026",
+    location: "Da remoto, Italia",
+    type: "work",
+    description:
+      "Sviluppo frontend su più prodotti in un'azienda IoT e building automation. Contributo a piattaforme di gestione web, un'app mobile cross-platform (iOS/Android), interfacce di controllo real-time e il rifacimento del sito corporate — con Angular, React, Ionic e Next.js per clienti enterprise.",
+    highlights: [
+      "Costruito il frontend per una webapp di gestione degli impianti termici con dati WebSocket in tempo reale, un'interfaccia di controllo grafica e pianificazione settimanale delle operazioni di riscaldamento e raffreddamento",
+      "Sviluppato moduli funzionali per l'app mobile Gabetti Real Estate (Ionic, iOS/Android), tra cui flussi di onboarding, un'integrazione welfare aziendale via REST API esterna e una sezione per le richieste di manutenzione",
+      "Implementato funzionalità di azioni bulk e risolto bug critici che bloccavano le demo per una webapp enterprise di gestione RSA (case di cura assistita)",
+      "Contributo al sistema di climatizzazione IoT Klima — integrando binding di dispositivi a livello di stanza e switching stagionale edificio (estate/inverno) con supporto per operazioni singole e massicce",
+      "Guidato il rifacimento completo di iooota.com con Next.js, TypeScript e Tailwind CSS, ristrutturando i contenuti per la comunicazione B2B con miglioramenti a SEO e metadata",
+      "Progettato mockup UI per l'interfaccia di controllo della centrale termica, presentati internamente e usati come riferimento di implementazione dal team",
+    ],
+  },
+  {
+    company: "Leonardo S.p.A.",
+    role: "Frontend Intern",
+    period: "Ago 2023 — Set 2023",
+    location: "Roma, Italia",
+    type: "work",
+    description:
+      "Stage di due mesi nel contributo a una piattaforma interna web-based per la gestione degli eventi aziendali. Lavoro sul frontend Angular, collaborazione con un team backend Java e applicazione di pratiche di sviluppo orientate alla sicurezza.",
+    highlights: [
+      "Costruito e perfezionato componenti UI per una piattaforma interna di gestione eventi con Angular",
+      "Collaborato con un team backend Java per allineare i contratti API e le strutture dati",
+      "Implementato layout responsive assicurando compatibilità cross-device",
+      "Applicato pratiche di sicurezza in linea con le linee guida OWASP",
+    ],
+  },
+];
+
+const educationEN: EducationItem[] = [
   {
     institution: "42 Roma Luiss",
     degree: "Intensive Coding Program",
@@ -68,6 +118,37 @@ export const education: EducationItem[] = [
       "Three-year degree covering UX/UI design, digital product development, 3D modeling, and prototyping. This foundation directly informs how I approach interface structure and product thinking in engineering work.",
   },
 ];
+
+const educationIT: EducationItem[] = [
+  {
+    institution: "42 Roma Luiss",
+    degree: "Programma Intensivo di Sviluppo Software",
+    period: "2022 — 2024",
+    location: "Roma, Italia",
+    notes:
+      "Completato un programma di ingegneria del software basato su progetti e peer review che copre C, C++, Python, sviluppo web, algoritmi, strutture dati e programmazione di sistemi. Il curriculum è interamente autogestito e guidato da sfide ingegneristiche reali.",
+  },
+  {
+    institution: "Accademia Poliarte",
+    degree: "Laurea Triennale in Product Design",
+    period: "2019 — 2021",
+    location: "Ancona, Italia",
+    notes:
+      "Laurea triennale che copre UX/UI design, sviluppo di prodotti digitali, modellazione 3D e prototipazione. Questa base informa direttamente l'approccio alla struttura delle interfacce e al pensiero di prodotto nel lavoro di ingegneria.",
+  },
+];
+
+export function getExperience(locale: string): ExperienceItem[] {
+  return locale === "it" ? experienceIT : experienceEN;
+}
+
+export function getEducation(locale: string): EducationItem[] {
+  return locale === "it" ? educationIT : educationEN;
+}
+
+// Default EN exports kept for backward compatibility
+export const experience = experienceEN;
+export const education = educationEN;
 
 export const focusAreas: FocusArea[] = [
   {

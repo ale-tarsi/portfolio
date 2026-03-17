@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { projects, getProjectBySlug } from "@/data/projects";
+import { projects, getProjectBySlug, getProjects } from "@/data/projects";
+import type { ProjectAsset } from "@/types";
 import Tag from "@/components/ui/Tag";
 import Button from "@/components/ui/Button";
 import Divider from "@/components/ui/Divider";
@@ -21,7 +22,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = getProjectBySlug(slug, locale);
   if (!project)
     return {
       title: isValidLocale(locale)
@@ -59,15 +60,16 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   const { locale, slug } = await params;
   if (!isValidLocale(locale)) notFound();
 
-  const project = getProjectBySlug(slug);
+  const project = getProjectBySlug(slug, locale);
   if (!project) notFound();
 
   const dict = await getDictionary(locale);
   const t = dict.projectDetail;
 
-  const currentIndex = projects.findIndex((p) => p.slug === slug);
-  const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
-  const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+  const allProjects = getProjects(locale);
+  const currentIndex = allProjects.findIndex((p) => p.slug === slug);
+  const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
+  const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null;
 
   return (
     <article className="pt-32 md:pt-40 pb-24">
@@ -192,19 +194,19 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
           {/* Main content — narrative order */}
           <div className="flex flex-col gap-14">
-            <Section heading={t.sectionOverview}>
+            <Section id="overview" heading={t.sectionOverview}>
               <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
                 {project.body.overview}
               </p>
             </Section>
 
-            <Section heading={t.sectionContext}>
+            <Section id="context" heading={t.sectionContext}>
               <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
                 {project.body.context}
               </p>
             </Section>
 
-            <Section heading={t.sectionChallenges}>
+            <Section id="challenges" heading={t.sectionChallenges}>
               <ul className="flex flex-col gap-6" role="list">
                 {project.body.challenges.map((c, i) => (
                   <li key={i} className="border-l-2 border-border pl-5">
@@ -219,17 +221,162 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               </ul>
             </Section>
 
-            <Section heading={t.sectionApproach}>
+            <Section id="approach" heading={t.sectionApproach}>
               <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
                 {project.body.approach}
               </p>
             </Section>
 
-            <Section heading={t.sectionOutcome}>
+            <Section id="outcome" heading={t.sectionOutcome}>
               <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
                 {project.body.outcome}
               </p>
             </Section>
+
+            {project.body.sections?.map((s, i) => {
+              const isFeatured = s.variant === "featured";
+              const isModules = s.variant === "modules";
+              const isStatusSummary = s.variant === "status-summary";
+
+              const statusDot: Record<string, string> = {
+                active:  "bg-green-500",
+                pending: "bg-amber-400",
+                planned: "bg-neutral-400",
+              };
+
+              return (
+                <Section key={s.id ?? i} id={s.id} heading={s.heading} featured={isFeatured}>
+                  <>
+                  {isStatusSummary && s.statusGroups ? (
+                    /* Status summary: stacked rows with dot + label + items */
+                    <div className="border border-border rounded-lg divide-y divide-border">
+                      {s.statusGroups.map((group, j) => (
+                        <div key={j} className="flex items-start gap-3 px-4 py-3.5">
+                          <span
+                            className={`mt-1 w-1.5 h-1.5 rounded-full shrink-0 ${statusDot[group.type] ?? "bg-neutral-400"}`}
+                            aria-hidden="true"
+                          />
+                          <div className="min-w-0">
+                            <p className="text-xs font-semibold text-ink tracking-[-0.01em]">{group.label}</p>
+                            <p className="text-xs text-ink-secondary mt-0.5 leading-relaxed">
+                              {group.items.join(" · ")}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : isModules && s.items ? (
+                    /* Modules: 2-column card grid */
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {s.items.map((item, j) => (
+                        <div key={j} className="border border-border rounded-lg p-4 flex flex-col gap-2.5">
+                          <p className="text-sm font-semibold text-ink tracking-[-0.01em]">{item.name}</p>
+                          <p className="text-sm text-ink-secondary leading-relaxed flex-1">{item.description}</p>
+                          {item.status && (
+                            <span className="inline-flex items-center gap-1.5 text-xs text-ink-tertiary pt-1 border-t border-border">
+                              <span
+                                className={`w-1.5 h-1.5 rounded-full shrink-0 ${item.statusType === "pending" ? "bg-amber-400" : "bg-green-500"}`}
+                                aria-hidden="true"
+                              />
+                              {item.status}
+                            </span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ) : isFeatured ? (
+                    /* Featured: zone layout — intro separated, list + steps in body */
+                    <div className="rounded-xl border border-border">
+                      {s.intro && (
+                        <div className={`px-6 md:px-8 pt-6 md:pt-7 ${(s.content || s.list || s.steps) ? "pb-5 border-b border-border" : "pb-6 md:pb-7"}`}>
+                          <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
+                            {s.intro}
+                          </p>
+                        </div>
+                      )}
+                      {(s.content || s.list || s.steps) && (
+                        <div className="px-6 md:px-8 py-5 md:py-6 flex flex-col gap-5">
+                          {s.content && (
+                            <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
+                              {s.content}
+                            </p>
+                          )}
+                          {s.list && (
+                            <ul className="flex flex-col gap-2.5">
+                              {s.list.map((item, j) => (
+                                <li key={j} className="flex items-start gap-3 text-sm text-ink-secondary leading-relaxed">
+                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-ink-tertiary shrink-0" aria-hidden="true" />
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                          {s.steps && s.list && <div className="border-t border-border" />}
+                          {s.steps && (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                              {s.steps.map((step, j) => (
+                                <div key={j} className="border border-border rounded-lg p-4 flex flex-col gap-2">
+                                  <span className="text-xs font-semibold text-ink-tertiary tabular-nums">
+                                    {String(j + 1).padStart(2, "0")}
+                                  </span>
+                                  <p className="text-sm font-semibold text-ink tracking-[-0.01em]">
+                                    {step.title}
+                                  </p>
+                                  <p className="text-sm text-ink-secondary leading-relaxed">
+                                    {step.description}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    /* Standard: flat, no wrapper */
+                    <>
+                      {s.intro && (
+                        <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
+                          {s.intro}
+                        </p>
+                      )}
+                      {s.content && (
+                        <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
+                          {s.content}
+                        </p>
+                      )}
+                      {s.list && (
+                        <ul className="flex flex-col gap-2">
+                          {s.list.map((item, j) => (
+                            <li key={j} className="flex items-start gap-3 text-sm text-ink-secondary leading-relaxed">
+                              <span className="mt-1.5 w-1 h-1 rounded-full bg-ink-tertiary shrink-0" aria-hidden="true" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {s.steps && (
+                        <ol className="flex flex-col gap-3">
+                          {s.steps.map((step, j) => (
+                            <li key={j} className="flex items-start gap-3 text-sm leading-relaxed">
+                              <span className="shrink-0 text-xs font-semibold text-ink-tertiary tabular-nums mt-0.5 w-5">
+                                {String(j + 1).padStart(2, "0")}
+                              </span>
+                              <span>
+                                <span className="font-semibold text-ink">{step.title} — </span>
+                                <span className="text-ink-secondary">{step.description}</span>
+                              </span>
+                            </li>
+                          ))}
+                        </ol>
+                      )}
+                    </>
+                  )}
+                  {s.assets && s.assets.length > 0 && <SectionAssets assets={s.assets} />}
+                  </>
+                </Section>
+              );
+            })}
           </div>
         </div>
 
@@ -287,22 +434,137 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 }
 
 function Section({
+  id: idProp,
   heading,
+  featured,
   children,
 }: {
+  id?: string;
   heading: string;
+  featured?: boolean;
   children: React.ReactNode;
 }) {
-  const id = `section-${heading.toLowerCase().replace(/\s+/g, "-")}`;
+  const id = idProp ?? `section-${heading.toLowerCase().replace(/\s+/g, "-")}`;
   return (
     <section aria-labelledby={id}>
       <h2
         id={id}
-        className="text-base font-semibold text-ink mb-4 tracking-[-0.01em]"
+        className={`font-semibold text-ink tracking-[-0.01em] ${featured ? "text-lg mb-6" : "text-base mb-4"}`}
       >
         {heading}
       </h2>
       {children}
     </section>
+  );
+}
+
+function SectionAssets({ assets }: { assets: ProjectAsset[] }) {
+  return (
+    <div className="mt-5 flex flex-col gap-4">
+      {assets.map((asset, i) => {
+        /* ── image ───────────────────────────────────────────────── */
+        if (asset.type === "image") {
+          return (
+            <figure key={i}>
+              {asset.url ? (
+                <img src={asset.url} alt={asset.alt ?? ""} className="w-full rounded-lg" />
+              ) : (
+                <div className="w-full min-h-[10rem] rounded-lg border border-dashed border-border bg-neutral-100 flex items-center justify-center">
+                  {asset.caption && (
+                    <p className="text-xs text-ink-tertiary px-6 text-center">{asset.caption}</p>
+                  )}
+                </div>
+              )}
+              {asset.url && asset.caption && (
+                <figcaption className="mt-1.5 text-xs text-ink-tertiary">{asset.caption}</figcaption>
+              )}
+            </figure>
+          );
+        }
+
+        /* ── gallery ─────────────────────────────────────────────── */
+        if (asset.type === "gallery") {
+          const imgs = asset.images ?? [];
+          return (
+            <div key={i}>
+              {imgs.length > 0 ? (
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {imgs.map((img, j) => (
+                    <img
+                      key={j}
+                      src={img.url}
+                      alt={img.alt ?? ""}
+                      className="w-full aspect-video object-cover rounded-md"
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" aria-hidden="true">
+                  {[0, 1, 2].map((j) => (
+                    <div
+                      key={j}
+                      className="aspect-video rounded-md border border-dashed border-border bg-neutral-100"
+                    />
+                  ))}
+                </div>
+              )}
+              {asset.caption && (
+                <p className="mt-1.5 text-xs text-ink-tertiary">{asset.caption}</p>
+              )}
+            </div>
+          );
+        }
+
+        /* ── diagram ─────────────────────────────────────────────── */
+        if (asset.type === "diagram") {
+          return (
+            <figure key={i}>
+              {asset.url ? (
+                <img src={asset.url} alt={asset.alt ?? ""} className="w-full rounded-lg" />
+              ) : (
+                <div className="w-full min-h-[14rem] rounded-lg border border-dashed border-border bg-neutral-100 flex items-center justify-center">
+                  {asset.caption && (
+                    <p className="text-xs text-ink-tertiary px-6 text-center">{asset.caption}</p>
+                  )}
+                </div>
+              )}
+              {asset.url && asset.caption && (
+                <figcaption className="mt-1.5 text-xs text-ink-tertiary">{asset.caption}</figcaption>
+              )}
+            </figure>
+          );
+        }
+
+        /* ── demo ────────────────────────────────────────────────── */
+        if (asset.type === "demo") {
+          return (
+            <div key={i} className="border border-border rounded-lg p-4 flex items-center justify-between gap-4">
+              <div className="min-w-0">
+                {asset.label && (
+                  <p className="text-sm font-semibold text-ink tracking-[-0.01em]">{asset.label}</p>
+                )}
+                {asset.caption && (
+                  <p className="text-xs text-ink-secondary mt-0.5 leading-relaxed">{asset.caption}</p>
+                )}
+              </div>
+              {asset.url ? (
+                <a
+                  href={asset.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-xs font-semibold text-ink border border-border rounded-md px-3 py-1.5 hover:bg-neutral-100 transition-colors duration-150"
+                >
+                  View →
+                </a>
+              ) : (
+                <span className="shrink-0 w-1.5 h-1.5 rounded-full bg-neutral-400" aria-hidden="true" />
+              )}
+            </div>
+          );
+        }
+
+        return null;
+      })}
+    </div>
   );
 }

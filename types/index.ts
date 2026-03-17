@@ -34,9 +34,44 @@ export interface ProjectChallenge {
   description: string;
 }
 
+export interface ProjectStep {
+  title: string;
+  description: string;
+}
+
+export interface ProjectModuleItem {
+  name: string;
+  description: string;
+  status?: string;
+  statusType?: "active" | "pending";
+}
+
+export interface ProjectStatusGroup {
+  label: string;
+  type: "active" | "pending" | "planned";
+  items: string[];
+}
+
+export interface ProjectAsset {
+  type: "image" | "gallery" | "diagram" | "demo";
+  url?: string;      // image src, diagram src, or demo href
+  alt?: string;      // image / diagram alt text
+  caption?: string;  // figcaption or description shown below
+  label?: string;    // demo: card title / link button text
+  images?: Array<{ url: string; alt?: string }>;  // gallery items
+}
+
 export interface ProjectSection {
+  id?: string;
   heading: string;
-  body: string;
+  variant?: "default" | "featured" | "modules" | "status-summary";
+  intro?: string;     // lead paragraph, rendered first
+  content?: string;   // main paragraph text
+  list?: string[];    // unordered bullet items
+  steps?: ProjectStep[];  // ordered flow steps with title + description
+  items?: ProjectModuleItem[];  // structured cards, used with variant="modules"
+  statusGroups?: ProjectStatusGroup[];  // status rows, used with variant="status-summary"
+  assets?: ProjectAsset[];  // optional visual assets rendered after content
 }
 
 export interface Project {

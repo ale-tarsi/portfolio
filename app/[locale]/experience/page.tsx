@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { experience, education } from "@/data/experience";
+import { getExperience, getEducation } from "@/data/experience";
 import Divider from "@/components/ui/Divider";
 import Button from "@/components/ui/Button";
 import { getDictionary, isValidLocale } from "@/lib/dictionaries";
@@ -25,6 +25,8 @@ export default async function ExperiencePage({ params }: PageProps) {
 
   const dict = await getDictionary(locale);
   const t = dict.experience;
+  const experience = getExperience(locale);
+  const education = getEducation(locale);
 
   return (
     <article className="pt-32 md:pt-40 pb-24">

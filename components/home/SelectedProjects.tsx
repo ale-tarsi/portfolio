@@ -13,7 +13,7 @@ export default function SelectedProjects({
   dict,
   locale = "en",
 }: SelectedProjectsProps) {
-  const featured = getFeaturedProjects();
+  const featured = getFeaturedProjects(locale);
 
   return (
     <section className="section-padding border-t border-border" aria-labelledby="projects-heading">
