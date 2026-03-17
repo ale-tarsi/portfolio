@@ -72,6 +72,8 @@ export interface ProjectSection {
   items?: ProjectModuleItem[];  // structured cards, used with variant="modules"
   statusGroups?: ProjectStatusGroup[];  // status rows, used with variant="status-summary"
   assets?: ProjectAsset[];  // optional visual assets rendered after content
+  mainVisual?: { url?: string; alt?: string; caption?: string };   // single hero image, featured section only
+  galleryImages?: Array<{ url?: string; alt?: string }>;           // 2–4 secondary screenshots, featured section only
 }
 
 export interface Project {

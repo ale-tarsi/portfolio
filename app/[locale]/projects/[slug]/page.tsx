@@ -247,132 +247,191 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               return (
                 <Section key={s.id ?? i} id={s.id} heading={s.heading} featured={isFeatured}>
                   <>
-                  {isStatusSummary && s.statusGroups ? (
-                    /* Status summary: stacked rows with dot + label + items */
-                    <div className="border border-border rounded-lg divide-y divide-border">
-                      {s.statusGroups.map((group, j) => (
-                        <div key={j} className="flex items-start gap-3 px-4 py-3.5">
-                          <span
-                            className={`mt-1 w-1.5 h-1.5 rounded-full shrink-0 ${statusDot[group.type] ?? "bg-neutral-400"}`}
-                            aria-hidden="true"
-                          />
-                          <div className="min-w-0">
-                            <p className="text-xs font-semibold text-ink tracking-[-0.01em]">{group.label}</p>
-                            <p className="text-xs text-ink-secondary mt-0.5 leading-relaxed">
-                              {group.items.join(" · ")}
-                            </p>
+                    {isStatusSummary && s.statusGroups ? (
+                      /* Status summary: stacked rows with dot + label + items */
+                      <div className="border border-border rounded-lg divide-y divide-border">
+                        {s.statusGroups.map((group, j) => (
+                          <div key={j} className="flex items-start gap-3 px-4 py-3.5">
+                            <span
+                              className={`mt-1 w-1.5 h-1.5 rounded-full shrink-0 ${statusDot[group.type] ?? "bg-neutral-400"}`}
+                              aria-hidden="true"
+                            />
+                            <div className="min-w-0">
+                              <p className="text-xs font-semibold text-ink tracking-[-0.01em]">{group.label}</p>
+                              <p className="text-xs text-ink-secondary mt-0.5 leading-relaxed">
+                                {group.items.join(" · ")}
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                      ))}
-                    </div>
-                  ) : isModules && s.items ? (
-                    /* Modules: 2-column card grid */
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {s.items.map((item, j) => (
-                        <div key={j} className="border border-border rounded-lg p-4 flex flex-col gap-2.5">
-                          <p className="text-sm font-semibold text-ink tracking-[-0.01em]">{item.name}</p>
-                          <p className="text-sm text-ink-secondary leading-relaxed flex-1">{item.description}</p>
-                          {item.status && (
-                            <span className="inline-flex items-center gap-1.5 text-xs text-ink-tertiary pt-1 border-t border-border">
-                              <span
-                                className={`w-1.5 h-1.5 rounded-full shrink-0 ${item.statusType === "pending" ? "bg-amber-400" : "bg-green-500"}`}
-                                aria-hidden="true"
-                              />
-                              {item.status}
-                            </span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  ) : isFeatured ? (
-                    /* Featured: zone layout — intro separated, list + steps in body */
-                    <div className="rounded-xl border border-border">
-                      {s.intro && (
-                        <div className={`px-6 md:px-8 pt-6 md:pt-7 ${(s.content || s.list || s.steps) ? "pb-5 border-b border-border" : "pb-6 md:pb-7"}`}>
+                        ))}
+                      </div>
+                    ) : isModules && s.items ? (
+                      /* Modules: 2-column card grid */
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {s.items.map((item, j) => (
+                          <div key={j} className="border border-border rounded-lg p-4 flex flex-col gap-2.5">
+                            <p className="text-sm font-semibold text-ink tracking-[-0.01em]">{item.name}</p>
+                            <p className="text-sm text-ink-secondary leading-relaxed flex-1">{item.description}</p>
+                            {item.status && (
+                              <span className="inline-flex items-center gap-1.5 text-xs text-ink-tertiary pt-1 border-t border-border">
+                                <span
+                                  className={`w-1.5 h-1.5 rounded-full shrink-0 ${item.statusType === "pending" ? "bg-amber-400" : "bg-green-500"}`}
+                                  aria-hidden="true"
+                                />
+                                {item.status}
+                              </span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    ) : isFeatured ? (
+                      /* Featured: intro + main visual, then list + gallery + steps */
+                      <div className="rounded-xl border border-border">
+                        {(s.intro || s.mainVisual) && (
+                          <div className={`px-6 md:px-8 pt-6 md:pt-7 ${(s.content || s.list || s.steps || !!s.galleryImages?.length) ? "pb-5 border-b border-border" : "pb-6 md:pb-7"}`}>
+                            {s.intro && (
+                              <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
+                                {s.intro}
+                              </p>
+                            )}
+                            {s.mainVisual && (
+                              <div className="mt-5">
+                                {s.mainVisual.url ? (
+                                  <figure className="mx-auto w-full max-w-[520px] rounded-lg border border-border bg-neutral-50 p-2">
+                                    <img
+                                      src={s.mainVisual.url}
+                                      alt={s.mainVisual.alt ?? ""}
+                                      className="w-full aspect-[9/16] object-contain rounded-md"
+                                    />
+                                    {s.mainVisual.caption && (
+                                      <figcaption className="mt-1.5 text-xs text-ink-tertiary">
+                                        {s.mainVisual.caption}
+                                      </figcaption>
+                                    )}
+                                  </figure>
+                                ) : (
+                                  <div
+                                    className="mx-auto w-full max-w-[520px] aspect-[9/16] rounded-lg border border-dashed border-border bg-neutral-100 flex items-center justify-center"
+                                    aria-hidden="true"
+                                  >
+                                    {s.mainVisual.caption && (
+                                      <p className="text-xs text-ink-tertiary px-6 text-center">
+                                        {s.mainVisual.caption}
+                                      </p>
+                                    )}
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        )}
+                        {(s.content || s.list || s.steps || !!s.galleryImages?.length) && (
+                          <div className="px-6 md:px-8 py-5 md:py-6 flex flex-col gap-5">
+                            {s.content && (
+                              <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
+                                {s.content}
+                              </p>
+                            )}
+                            {s.list && (
+                              <ul className="flex flex-col gap-2.5">
+                                {s.list.map((item, j) => (
+                                  <li key={j} className="flex items-start gap-3 text-sm text-ink-secondary leading-relaxed">
+                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-ink-tertiary shrink-0" aria-hidden="true" />
+                                    {item}
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                            {s.galleryImages && s.galleryImages.length > 0 && (
+                              <div
+                                className={`grid gap-2 ${
+                                  s.galleryImages.length === 2
+                                    ? "grid-cols-2"
+                                    : "grid-cols-2 lg:grid-cols-3"
+                                }`}
+                              >
+                                {s.galleryImages.map((img, j) =>
+                                  img.url ? (
+                                    <img
+                                      key={j}
+                                      src={img.url}
+                                      alt={img.alt ?? ""}
+                                      className="w-full aspect-[9/16] object-contain rounded-lg border border-border bg-neutral-50 p-1.5"
+                                    />
+                                  ) : (
+                                    <div
+                                      key={j}
+                                      className="aspect-[9/16] rounded-lg border border-dashed border-border bg-neutral-100"
+                                      aria-hidden="true"
+                                    />
+                                  )
+                                )}
+                              </div>
+                            )}
+                            {s.steps && (s.list || !!s.galleryImages?.length) && (
+                              <div className="border-t border-border" />
+                            )}
+                            {s.steps && (
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                {s.steps.map((step, j) => (
+                                  <div key={j} className="border border-border rounded-lg p-4 flex flex-col gap-2">
+                                    <span className="text-xs font-semibold text-ink-tertiary tabular-nums">
+                                      {String(j + 1).padStart(2, "0")}
+                                    </span>
+                                    <p className="text-sm font-semibold text-ink tracking-[-0.01em]">
+                                      {step.title}
+                                    </p>
+                                    <p className="text-sm text-ink-secondary leading-relaxed">
+                                      {step.description}
+                                    </p>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      /* Standard: flat, no wrapper */
+                      <>
+                        {s.intro && (
                           <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
                             {s.intro}
                           </p>
-                        </div>
-                      )}
-                      {(s.content || s.list || s.steps) && (
-                        <div className="px-6 md:px-8 py-5 md:py-6 flex flex-col gap-5">
-                          {s.content && (
-                            <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
-                              {s.content}
-                            </p>
-                          )}
-                          {s.list && (
-                            <ul className="flex flex-col gap-2.5">
-                              {s.list.map((item, j) => (
-                                <li key={j} className="flex items-start gap-3 text-sm text-ink-secondary leading-relaxed">
-                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-ink-tertiary shrink-0" aria-hidden="true" />
-                                  {item}
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                          {s.steps && s.list && <div className="border-t border-border" />}
-                          {s.steps && (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                              {s.steps.map((step, j) => (
-                                <div key={j} className="border border-border rounded-lg p-4 flex flex-col gap-2">
-                                  <span className="text-xs font-semibold text-ink-tertiary tabular-nums">
-                                    {String(j + 1).padStart(2, "0")}
-                                  </span>
-                                  <p className="text-sm font-semibold text-ink tracking-[-0.01em]">
-                                    {step.title}
-                                  </p>
-                                  <p className="text-sm text-ink-secondary leading-relaxed">
-                                    {step.description}
-                                  </p>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    /* Standard: flat, no wrapper */
-                    <>
-                      {s.intro && (
-                        <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
-                          {s.intro}
-                        </p>
-                      )}
-                      {s.content && (
-                        <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
-                          {s.content}
-                        </p>
-                      )}
-                      {s.list && (
-                        <ul className="flex flex-col gap-2">
-                          {s.list.map((item, j) => (
-                            <li key={j} className="flex items-start gap-3 text-sm text-ink-secondary leading-relaxed">
-                              <span className="mt-1.5 w-1 h-1 rounded-full bg-ink-tertiary shrink-0" aria-hidden="true" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      {s.steps && (
-                        <ol className="flex flex-col gap-3">
-                          {s.steps.map((step, j) => (
-                            <li key={j} className="flex items-start gap-3 text-sm leading-relaxed">
-                              <span className="shrink-0 text-xs font-semibold text-ink-tertiary tabular-nums mt-0.5 w-5">
-                                {String(j + 1).padStart(2, "0")}
-                              </span>
-                              <span>
-                                <span className="font-semibold text-ink">{step.title} — </span>
-                                <span className="text-ink-secondary">{step.description}</span>
-                              </span>
-                            </li>
-                          ))}
-                        </ol>
-                      )}
-                    </>
-                  )}
-                  {s.assets && s.assets.length > 0 && <SectionAssets assets={s.assets} />}
+                        )}
+                        {s.content && (
+                          <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
+                            {s.content}
+                          </p>
+                        )}
+                        {s.list && (
+                          <ul className="flex flex-col gap-2">
+                            {s.list.map((item, j) => (
+                              <li key={j} className="flex items-start gap-3 text-sm text-ink-secondary leading-relaxed">
+                                <span className="mt-1.5 w-1 h-1 rounded-full bg-ink-tertiary shrink-0" aria-hidden="true" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                        {s.steps && (
+                          <ol className="flex flex-col gap-3">
+                            {s.steps.map((step, j) => (
+                              <li key={j} className="flex items-start gap-3 text-sm leading-relaxed">
+                                <span className="shrink-0 text-xs font-semibold text-ink-tertiary tabular-nums mt-0.5 w-5">
+                                  {String(j + 1).padStart(2, "0")}
+                                </span>
+                                <span>
+                                  <span className="font-semibold text-ink">{step.title} — </span>
+                                  <span className="text-ink-secondary">{step.description}</span>
+                                </span>
+                              </li>
+                            ))}
+                          </ol>
+                        )}
+                      </>
+                    )}
+                    {s.assets && s.assets.length > 0 && <SectionAssets assets={s.assets} />}
                   </>
                 </Section>
               );

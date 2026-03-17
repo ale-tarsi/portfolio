@@ -8,7 +8,7 @@ const projectsEN: Project[] = [
       "Micro-tool family for short-term rental operations — check-in, channel manager, AI, and workers",
     description:
       "A family of integrated tools for short-term rental hosts: HostID for digital check-in and regulatory reporting (Questura, ISTAT) with OCR, a channel manager with Booking.com/Airbnb/Vrbo integrations and AI add-ons, external service coordination, and a workers marketplace in development.",
-    year: "2024",
+    year: "2025/26",
     role: "Full Stack Developer",
     status: "in-progress",
     featured: true,
@@ -95,11 +95,27 @@ const projectsEN: Project[] = [
             { title: "Validate", description: "Extracted data checked for completeness and format compliance." },
             { title: "Submit", description: "Structured report dispatched to Questura and ISTAT with status feedback and error recovery." },
           ],
-          assets: [
+          mainVisual: {
+            url: "/dettaglio_checkin.png",
+            alt: "HostID screen showing check-in detail",
+            caption: "Check-in detail",
+          },
+          // Add a 4th item here later for document/OCR/validation when ready.
+          galleryImages: [
             {
-              type: "gallery",
-              caption: "HostID check-in flow — screenshots coming soon",
+              url: "/home.png",
+              alt: "HostID home with active check-in and guest card",
             },
+            {
+              url: "/nuovo_checkin.png",
+              alt: "HostID new check-in screen",
+            },
+            {
+              url: "/registrati.png",
+              alt: "HostID registration screen",
+            },
+          ],
+          assets: [
             {
               type: "demo",
               label: "Interactive Demo",
@@ -146,28 +162,6 @@ const projectsEN: Project[] = [
             },
           ],
         },
-        {
-          id: "current-status",
-          heading: "Current Status",
-          variant: "status-summary",
-          statusGroups: [
-            {
-              label: "Functional and in use",
-              type: "active",
-              items: ["HostID (web + mobile)", "channel manager", "external service API integrations", "AI add-on workflows via n8n"],
-            },
-            {
-              label: "In development",
-              type: "pending",
-              items: ["Workers marketplace module"],
-            },
-            {
-              label: "Planned",
-              type: "planned",
-              items: ["Interactive demo mockup for portfolio presentation"],
-            },
-          ],
-        },
       ],
     },
   },
@@ -177,7 +171,7 @@ const projectsEN: Project[] = [
     subtitle: "Full-stack financial data and analytics platform",
     description:
       "A platform for importing financial statements, normalizing transaction events, and generating portfolio analytics dashboards for monitoring and visibility.",
-    year: "2024",
+    year: "2025",
     role: "Full Stack Developer",
     status: "completed",
     featured: true,
@@ -217,7 +211,7 @@ const projectsEN: Project[] = [
     subtitle: "Frontend development across multiple web properties",
     description:
       "Frontend development and delivery across multiple company and showcase websites — including AtavicoLabs, IOOOTA, CODFOOD, Semylla, and related digital properties.",
-    year: "2024",
+    year: "2025/26",
     role: "Frontend Developer",
     status: "completed",
     featured: true,
@@ -399,6 +393,33 @@ const projectsIT: Project[] = [
             { title: "Validazione", description: "Dati estratti verificati per completezza e conformità al formato." },
             { title: "Invio", description: "Report strutturato inviato a Questura e ISTAT con feedback di stato e gestione degli errori." },
           ],
+          mainVisual: {
+            url: "/dettaglio_checkin.png",
+            alt: "Schermata HostID con dettaglio check-in",
+            caption: "Dettaglio check-in",
+          },
+          // Qui puoi aggiungere in seguito un 4o elemento per documento/OCR/validazione.
+          galleryImages: [
+            {
+              url: "/home.png",
+              alt: "Home HostID con check-in attivo e card ospite",
+            },
+            {
+              url: "/nuovo_checkin.png",
+              alt: "Schermata Nuovo Check-in di HostID",
+            },
+            {
+              url: "/registrati.png",
+              alt: "Schermata Registrati di HostID",
+            },
+          ],
+          assets: [
+            {
+              type: "demo",
+              label: "Demo Interattiva",
+              caption: "Walkthrough completo del check-in — in preparazione",
+            },
+          ],
         },
         {
           id: "channel-manager",
@@ -431,28 +452,6 @@ const projectsIT: Project[] = [
             "AI Add-on: n8n per l'orchestrazione dei workflow, microservizi Python per le chiamate ai modelli.",
             "Integrazioni di servizi: punti di integrazione API standalone per ciascun fornitore di servizi esterno.",
             "Infrastruttura: Docker Compose per l'orchestrazione locale e di deployment.",
-          ],
-        },
-        {
-          id: "current-status",
-          heading: "Stato Attuale",
-          variant: "status-summary",
-          statusGroups: [
-            {
-              label: "Funzionale e in uso",
-              type: "active",
-              items: ["HostID (web + mobile)", "channel manager", "integrazioni API dei servizi esterni", "workflow add-on AI tramite n8n"],
-            },
-            {
-              label: "In sviluppo",
-              type: "pending",
-              items: ["modulo marketplace Workers"],
-            },
-            {
-              label: "Pianificato",
-              type: "planned",
-              items: ["mockup con demo interattiva per la presentazione nel portfolio"],
-            },
           ],
         },
       ],
