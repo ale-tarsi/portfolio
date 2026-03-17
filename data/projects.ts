@@ -1,5 +1,9 @@
 import { Project } from "@/types";
 
+const staticBasePath = process.env.GITHUB_ACTIONS === "true" ? "/portfolio" : "";
+const withStaticBasePath = (path: string) =>
+  `${staticBasePath}${path.startsWith("/") ? path : `/${path}`}`;
+
 const projectsEN: Project[] = [
   {
     slug: "host-operations-platform",
@@ -96,22 +100,22 @@ const projectsEN: Project[] = [
             { title: "Submit", description: "Structured report dispatched to Questura and ISTAT with status feedback and error recovery." },
           ],
           mainVisual: {
-            url: "/dettaglio_checkin.png",
+            url: withStaticBasePath("/dettaglio_checkin.png"),
             alt: "HostID screen showing check-in detail",
             caption: "Check-in detail",
           },
           // Add a 4th item here later for document/OCR/validation when ready.
           galleryImages: [
             {
-              url: "/home.png",
+              url: withStaticBasePath("/home.png"),
               alt: "HostID home with active check-in and guest card",
             },
             {
-              url: "/nuovo_checkin.png",
+              url: withStaticBasePath("/nuovo_checkin.png"),
               alt: "HostID new check-in screen",
             },
             {
-              url: "/registrati.png",
+              url: withStaticBasePath("/registrati.png"),
               alt: "HostID registration screen",
             },
           ],
@@ -394,22 +398,22 @@ const projectsIT: Project[] = [
             { title: "Invio", description: "Report strutturato inviato a Questura e ISTAT con feedback di stato e gestione degli errori." },
           ],
           mainVisual: {
-            url: "/dettaglio_checkin.png",
+            url: withStaticBasePath("/dettaglio_checkin.png"),
             alt: "Schermata HostID con dettaglio check-in",
             caption: "Dettaglio check-in",
           },
           // Qui puoi aggiungere in seguito un 4o elemento per documento/OCR/validazione.
           galleryImages: [
             {
-              url: "/home.png",
+              url: withStaticBasePath("/home.png"),
               alt: "Home HostID con check-in attivo e card ospite",
             },
             {
-              url: "/nuovo_checkin.png",
+              url: withStaticBasePath("/nuovo_checkin.png"),
               alt: "Schermata Nuovo Check-in di HostID",
             },
             {
-              url: "/registrati.png",
+              url: withStaticBasePath("/registrati.png"),
               alt: "Schermata Registrati di HostID",
             },
           ],
