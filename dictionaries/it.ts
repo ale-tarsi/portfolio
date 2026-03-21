@@ -79,8 +79,8 @@ const it: Dictionary = {
 
   about: {
     label: "Chi sono",
-    headingLine1: "Prima ho progettato.",
-    headingLine2: "Poi ho programmato.",
+    headingLine1: "Ho progettato.",
+    headingLine2: "Ho programmato.",
     headingAccent: "Continuo a pensare a entrambe le cose.",
     p1: "Ho studiato Product Design all’Accademia Poliarte di Ancona. Più della forma visiva, mi è rimasto il modo in cui struttura, gerarchia e flusso delle informazioni determinano se qualcosa funziona davvero.",
     p2: "Ho imparato a costruire software alla 42 Roma Luiss — un percorso peer-to-peer basato su progetti, senza lezioni frontali né curricolo formale, dove tutto si impara scrivendo codice reale con vincoli reali. Il passaggio è stato deliberato: molte delle scelte che incidono sull’esperienza utente accadono nel codice, non nei file di design.",
