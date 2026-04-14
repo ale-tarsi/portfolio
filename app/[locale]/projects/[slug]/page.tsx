@@ -215,20 +215,28 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <Section id="challenges" heading={t.sectionChallenges}>
               <ul className="flex flex-col gap-6" role="list">
                 {project.body.challenges.map((c, i) => (
-                  <li key={i} className="border-l-2 border-border pl-5">
-                    <p className="text-sm font-semibold text-ink mb-1.5 tracking-[-0.01em]">
-                      {c.title}
-                    </p>
-                    <p className="text-sm text-ink-secondary leading-relaxed">
-                      {c.description}
-                    </p>
-                    {c.image && (
+                  <li key={i} className="border border-border rounded-lg p-4 flex items-start gap-3">
+                    {c.image ? (
                       <img
                         src={c.image}
-                        alt={c.title}
-                        className="mt-3 w-full rounded-lg border border-border bg-neutral-50"
+                        alt=""
+                        aria-hidden="true"
+                        className="w-10 h-10 md:w-14 md:h-14 rounded-md border border-border bg-neutral-50 object-cover shrink-0"
+                      />
+                    ) : (
+                      <span
+                        className="w-10 h-10 md:w-14 md:h-14 rounded-md border border-dashed border-border bg-neutral-100 shrink-0"
+                        aria-hidden="true"
                       />
                     )}
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-ink mb-1.5 tracking-[-0.01em]">
+                        {c.title}
+                      </p>
+                      <p className="text-sm text-ink-secondary leading-relaxed">
+                        {c.description}
+                      </p>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -359,8 +367,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                               <div
                                 className={`grid gap-2 ${
                                   s.galleryImages.length === 2
-                                    ? "grid-cols-2"
-                                    : "grid-cols-2 lg:grid-cols-3"
+                                    ? "grid-cols-1 md:grid-cols-2"
+                                    : s.galleryImages.length === 4
+                                      ? "grid-cols-1 md:grid-cols-2"
+                                      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
                                 }`}
                               >
                                 {s.galleryImages.map((img, j) =>
@@ -369,12 +379,12 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                                       key={j}
                                       src={img.url}
                                       alt={img.alt ?? ""}
-                                      className="w-full aspect-[9/16] object-contain rounded-lg border border-border bg-neutral-50 p-1.5"
+                                      className="w-full aspect-video object-cover rounded-lg border border-border bg-neutral-50"
                                     />
                                   ) : (
                                     <div
                                       key={j}
-                                      className="aspect-[9/16] rounded-lg border border-dashed border-border bg-neutral-100"
+                                      className="aspect-video rounded-lg border border-dashed border-border bg-neutral-100"
                                       aria-hidden="true"
                                     />
                                   )
