@@ -32,6 +32,7 @@ export type ProjectTag =
 export interface ProjectChallenge {
   title: string;
   description: string;
+  image?: string;
 }
 
 export interface ProjectStep {
@@ -74,6 +75,7 @@ export interface ProjectSection {
   assets?: ProjectAsset[];  // optional visual assets rendered after content
   mainVisual?: { url?: string; alt?: string; caption?: string };   // single hero image, featured section only
   galleryImages?: Array<{ url?: string; alt?: string }>;           // 2–4 secondary screenshots, featured section only
+  caption?: string;   // optional caption rendered below the gallery
 }
 
 export interface Project {
@@ -89,9 +91,12 @@ export interface Project {
   coverColor: string; // Tailwind bg class for placeholder cover
   body: {
     overview: string;
+    overviewAssets?: ProjectAsset[];
     context: string;
+    contextAssets?: ProjectAsset[];
     challenges: ProjectChallenge[];
     approach: string;
+    approachCards?: Array<{ label: string; value: string }>;
     outcome: string;
     sections?: ProjectSection[];
   };

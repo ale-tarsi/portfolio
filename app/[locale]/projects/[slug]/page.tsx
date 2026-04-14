@@ -198,12 +198,18 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
                 {project.body.overview}
               </p>
+              {project.body.overviewAssets && project.body.overviewAssets.length > 0 && (
+                <SectionAssets assets={project.body.overviewAssets} />
+              )}
             </Section>
 
             <Section id="context" heading={t.sectionContext}>
               <p className="text-ink-secondary text-base md:text-lg leading-relaxed">
                 {project.body.context}
               </p>
+              {project.body.contextAssets && project.body.contextAssets.length > 0 && (
+                <SectionAssets assets={project.body.contextAssets} />
+              )}
             </Section>
 
             <Section id="challenges" heading={t.sectionChallenges}>
@@ -216,6 +222,13 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     <p className="text-sm text-ink-secondary leading-relaxed">
                       {c.description}
                     </p>
+                    {c.image && (
+                      <img
+                        src={c.image}
+                        alt={c.title}
+                        className="mt-3 w-full rounded-lg border border-border bg-neutral-50"
+                      />
+                    )}
                   </li>
                 ))}
               </ul>
