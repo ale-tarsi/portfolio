@@ -255,7 +255,7 @@ const projectsEN: Project[] = [
     subtitle:
       "Full-stack realtime multiplayer platform with security and blockchain integration",
     description:
-      "Multiplayer Pong platform with realtime gameplay, tournament management, enterprise-grade security layers, and blockchain-based result registration on Ethereum Sepolia.",
+      "ft_transcendence is a full-stack multiplayer web platform built around a real-time Pong game with tournament management, role-based access, and blockchain-based result registration. The platform combines an Angular frontend, a Django backend with WebSocket-driven game logic, and a security-oriented infrastructure layer — delivering a production-grade architecture across every layer of the stack.",
     year: "2024",
     role: "Full Stack Developer",
     status: "completed",
@@ -275,29 +275,72 @@ const projectsEN: Project[] = [
     body: {
       overview:
         "ft_transcendence is a full-stack multiplayer web platform built around a real-time Pong game with tournament management, role-based access, and blockchain-based result registration. The platform combines an Angular frontend, a Django backend with WebSocket-driven game logic, and a security-oriented infrastructure layer — delivering a production-grade architecture across every layer of the stack.",
+      overviewAssets: [
+        {
+          type: "image",
+          url: withStaticBasePath("/images/Asset_1_Hero.jpg"),
+          alt: "ft_transcendence running on monitor — Pong match display",
+        },
+      ],
       context:
         "The project was a 42 curriculum final assignment with deliberately broad scope: build a complete, deployable multiplayer platform meeting functional, security, and infrastructure requirements simultaneously. The combination of real-time gameplay, tournament logic, enterprise security patterns, and on-chain data registration made it a technically dense integration challenge with no room for shortcuts across layers.",
+      contextAssets: [
+        {
+          type: "diagram",
+          url: withStaticBasePath("/images/Asset_2_diagram.png"),
+          alt: "Django-Redis-PostgreSQL architecture diagram",
+          caption:
+            "Backend architecture flow — Django Channels handles WebSocket game sessions, delegating real-time state to Redis as the channel layer; PostgreSQL persists relational data (users, tournaments, match results) while Redis manages ephemeral session state and pub/sub message routing between server processes.",
+        },
+      ],
       challenges: [
         {
           title: "Real-time gameplay and tournament flow",
           description:
             "Implementing multiplayer Pong with accurate, low-latency state synchronisation required a WebSocket-based game loop with asynchronous server-side logic and client-side interpolation. Tournament bracket progression had to remain consistent across concurrent matches and disconnection scenarios.",
+          image: withStaticBasePath("/images/Asset_5_Realtime.png"),
         },
         {
           title: "Security-oriented infrastructure",
           description:
             "Meeting enterprise-grade security requirements meant integrating HashiCorp Vault for secrets management, ModSecurity as a web application firewall, TLS-enabled services throughout, and ELK Stack for observability — each requiring careful configuration to work together without degrading application performance.",
+          image: withStaticBasePath("/images/Asset_4_Security.png"),
         },
         {
           title: "Blockchain result registration",
           description:
             "Persisting tournament outcomes on the Sepolia Ethereum testnet introduced transaction lifecycle handling — confirmation waiting, on-chain read/write latency, and smart contract data structure constraints — that required careful decoupling from the main application flow to avoid blocking user-facing operations.",
+          image: withStaticBasePath("/images/Asset_3_Blockchain.png"),
         },
       ],
       approach:
         "Frontend built in Angular with TypeScript. Backend in Django using Django REST Framework for APIs and Django Channels for WebSocket-based game sessions. PostgreSQL for relational persistence, Redis for channel layer and session state. Docker Compose for full-stack local and deployment orchestration. Security layer composed of HashiCorp Vault, ModSecurity, and TLS-enforced service boundaries. ELK Stack for centralised log aggregation and observability.",
+      approachCards: [
+        { label: "Frontend",    value: "Angular, TypeScript" },
+        { label: "Backend",     value: "Django, Channels" },
+        { label: "Data",        value: "PostgreSQL, Redis" },
+        { label: "Infra",       value: "Docker Compose" },
+        { label: "Security",    value: "Vault, ModSecurity" },
+        { label: "Blockchain",  value: "Ethereum, Sepolia" },
+      ],
       outcome:
         "Complete platform delivered and functional across all requirement layers — real-time multiplayer, tournament management, security infrastructure, and blockchain integration. The project produced full-stack experience across frontend, backend, DevOps, and security domains within a single cohesive system.",
+      sections: [
+        {
+          id: "ui-experience",
+          heading: "User Interface & Experience",
+          variant: "featured",
+          intro:
+            "A coherent design system built in Angular, focused on usability and cyberpunk aesthetics.",
+          galleryImages: [
+            { url: withStaticBasePath("/images/Asset_6.jpg"), alt: "ft_transcendence gameplay — Pong match with ape player" },
+            { url: withStaticBasePath("/images/Asset_7.jpg"), alt: "ft_transcendence profile — Cat player stats and tournament history" },
+            { url: withStaticBasePath("/images/Asset_8.jpg"), alt: "ft_transcendence settings — Profile and language configuration" },
+            { url: withStaticBasePath("/images/Asset_9.jpg"), alt: "ft_transcendence tournament — Finals and semi-finals bracket" },
+          ],
+          caption: "Cinematic renders of the main interfaces projected onto quartz terminals.",
+        },
+      ],
     },
   },
 ];
@@ -547,7 +590,7 @@ const projectsIT: Project[] = [
     subtitle:
       "Piattaforma multiplayer realtime full-stack con sicurezza e integrazione blockchain",
     description:
-      "Piattaforma Pong multiplayer con gameplay realtime, gestione dei tornei, layer di sicurezza enterprise e registrazione dei risultati su blockchain Ethereum Sepolia.",
+      "ft_transcendence è una piattaforma web multiplayer full-stack costruita attorno a un gioco Pong in tempo reale con gestione dei tornei, accesso basato su ruoli e registrazione dei risultati su blockchain. La piattaforma combina un frontend Angular, un backend Django con logica di gioco via WebSocket e un layer infrastrutturale orientato alla sicurezza — garantendo un'architettura di livello produzione in ogni layer dello stack.",
     year: "2024",
     role: "Full Stack Developer",
     status: "completed",
@@ -567,29 +610,72 @@ const projectsIT: Project[] = [
     body: {
       overview:
         "ft_transcendence è una piattaforma web multiplayer full-stack costruita attorno a un gioco Pong in tempo reale con gestione dei tornei, accesso basato su ruoli e registrazione dei risultati su blockchain. La piattaforma combina un frontend Angular, un backend Django con logica di gioco via WebSocket e un layer infrastrutturale orientato alla sicurezza — garantendo un'architettura di livello produzione in ogni layer dello stack.",
+      overviewAssets: [
+        {
+          type: "image",
+          url: withStaticBasePath("/images/Asset_1_Hero.jpg"),
+          alt: "ft_transcendence sul monitor — partita Pong in corso",
+        },
+      ],
       context:
         "Il progetto era l'assignment finale del curriculum 42 con uno scope deliberatamente ampio: costruire una piattaforma multiplayer completa e deployabile che soddisfacesse requisiti funzionali, di sicurezza e infrastrutturali simultaneamente. La combinazione di gameplay in tempo reale, logica dei tornei, pattern di sicurezza enterprise e registrazione on-chain dei dati l'ha reso una sfida di integrazione tecnicamente densa senza margine per scorciatoie in nessun layer.",
+      contextAssets: [
+        {
+          type: "diagram",
+          url: withStaticBasePath("/images/Asset_2_diagram.png"),
+          alt: "Diagramma architetturale Django-Redis-PostgreSQL",
+          caption:
+            "Flusso architetturale backend — Django Channels gestisce le sessioni di gioco via WebSocket, delegando lo stato in tempo reale a Redis come channel layer; PostgreSQL persiste i dati relazionali (utenti, tornei, risultati delle partite) mentre Redis gestisce lo stato effimero delle sessioni e il routing pub/sub dei messaggi tra i processi server.",
+        },
+      ],
       challenges: [
         {
           title: "Gameplay realtime e flusso dei tornei",
           description:
             "Implementare Pong multiplayer con sincronizzazione dello stato accurata e a bassa latenza ha richiesto un game loop basato su WebSocket con logica asincrona server-side e interpolazione client-side. La progressione dei bracket del torneo doveva rimanere coerente tra partite concorrenti e scenari di disconnessione.",
+          image: withStaticBasePath("/images/Asset_5_Realtime.png"),
         },
         {
           title: "Infrastruttura orientata alla sicurezza",
           description:
             "Soddisfare i requisiti di sicurezza enterprise ha richiesto l'integrazione di HashiCorp Vault per la gestione dei segreti, ModSecurity come web application firewall, servizi TLS-enabled ovunque e ELK Stack per l'osservabilità — ciascuno richiedendo una configurazione attenta per funzionare insieme senza degradare le prestazioni dell'applicazione.",
+          image: withStaticBasePath("/images/Asset_4_Security.png"),
         },
         {
           title: "Registrazione dei risultati su blockchain",
           description:
             "Persistere i risultati dei tornei sulla testnet Sepolia di Ethereum ha introdotto la gestione del ciclo di vita delle transazioni — attesa delle conferme, latenza di lettura/scrittura on-chain e vincoli della struttura dati degli smart contract — che richiedeva un decoupling attento dal flusso principale dell'applicazione per evitare di bloccare le operazioni visibili all'utente.",
+          image: withStaticBasePath("/images/Asset_3_Blockchain.png"),
         },
       ],
       approach:
         "Frontend costruito in Angular con TypeScript. Backend in Django con Django REST Framework per le API e Django Channels per le sessioni di gioco via WebSocket. PostgreSQL per la persistenza relazionale, Redis per il channel layer e lo stato delle sessioni. Docker Compose per l'orchestrazione full-stack locale e di deployment. Layer di sicurezza composto da HashiCorp Vault, ModSecurity e confini di servizio TLS-enforced. ELK Stack per l'aggregazione centralizzata dei log e l'osservabilità.",
+      approachCards: [
+        { label: "Frontend",   value: "Angular, TypeScript" },
+        { label: "Backend",    value: "Django, Channels" },
+        { label: "Dati",       value: "PostgreSQL, Redis" },
+        { label: "Infra",      value: "Docker Compose" },
+        { label: "Sicurezza",  value: "Vault, ModSecurity" },
+        { label: "Blockchain", value: "Ethereum, Sepolia" },
+      ],
       outcome:
         "Piattaforma completa consegnata e funzionale in tutti i layer dei requisiti — multiplayer in tempo reale, gestione dei tornei, infrastruttura di sicurezza e integrazione blockchain. Il progetto ha prodotto esperienza full-stack su frontend, backend, DevOps e domini di sicurezza all'interno di un unico sistema coerente.",
+      sections: [
+        {
+          id: "ui-experience",
+          heading: "Interfaccia Utente & Experience",
+          variant: "featured",
+          intro:
+            "Un design system coerente sviluppato in Angular, focalizzato sull'usabilità e sull'estetica cyberpunk.",
+          galleryImages: [
+            { url: withStaticBasePath("/images/Asset_6.jpg"), alt: "ft_transcendence gameplay — partita Pong con il giocatore ape" },
+            { url: withStaticBasePath("/images/Asset_7.jpg"), alt: "ft_transcendence profilo — statistiche e storico tornei del giocatore cat" },
+            { url: withStaticBasePath("/images/Asset_8.jpg"), alt: "ft_transcendence impostazioni — configurazione profilo e lingua" },
+            { url: withStaticBasePath("/images/Asset_9.jpg"), alt: "ft_transcendence torneo — bracket finali e semifinali" },
+          ],
+          caption: "Render cinematici delle interfacce principali proiettate su terminali di quarzo.",
+        },
+      ],
     },
   },
 ];
