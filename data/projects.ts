@@ -214,7 +214,7 @@ const projectsEN: Project[] = [
     title: "Corporate & Showcase Websites",
     subtitle: "Frontend development across multiple web properties",
     description:
-      "Frontend development and delivery across multiple company and showcase websites — including AtavicoLabs, IOOOTA, CODFOOD, Semylla, and related digital properties.",
+      "Frontend development and delivery across multiple company and showcase websites — including AtavicoLabs, CODFOOD, Semylla, and related digital properties.",
     year: "2025/26",
     role: "Frontend Developer",
     status: "completed",
@@ -223,7 +223,7 @@ const projectsEN: Project[] = [
     tags: ["React", "Next.js", "TypeScript", "HTML", "CSS"],
     body: {
       overview:
-        "A collection of frontend web projects delivered across different company, product, and showcase contexts. Sites include AtavicoLabs, IOOOTA, CODFOOD, Semylla, and additional web properties — each with distinct design identities, content structures, and delivery requirements.",
+        "A collection of frontend web projects delivered across different company, product, and showcase contexts. Sites include AtavicoLabs, CODFOOD, Semylla, and additional web properties — each with distinct design identities, content structures, and delivery requirements.",
       context:
         "Website delivery for multiple clients and studio contexts required consistent technical execution across varying brand requirements. The work spanned initial scaffolding through production deployment, covering responsive layout implementation, UI component development, and content integration — while keeping codebases maintainable across concurrent engagements.",
       challenges: [
@@ -549,7 +549,7 @@ const projectsIT: Project[] = [
     title: "Corporate & Showcase Websites",
     subtitle: "Sviluppo frontend su più proprietà web",
     description:
-      "Sviluppo frontend e consegna su più siti corporate e showcase — tra cui AtavicoLabs, IOOOTA, CODFOOD, Semylla e proprietà digitali correlate.",
+      "Sviluppo frontend e consegna su più siti corporate e showcase — tra cui AtavicoLabs, CODFOOD, Semylla e proprietà digitali correlate.",
     year: "2024",
     role: "Frontend Developer",
     status: "completed",
@@ -558,7 +558,7 @@ const projectsIT: Project[] = [
     tags: ["React", "Next.js", "TypeScript", "HTML", "CSS"],
     body: {
       overview:
-        "Una raccolta di progetti web frontend consegnati in diversi contesti aziendali, di prodotto e showcase. I siti includono AtavicoLabs, IOOOTA, CODFOOD, Semylla e ulteriori proprietà web — ciascuno con identità di design, strutture di contenuto e requisiti di consegna distinti.",
+        "Una raccolta di progetti web frontend consegnati in diversi contesti aziendali, di prodotto e showcase. I siti includono AtavicoLabs, CODFOOD, Semylla e ulteriori proprietà web — ciascuno con identità di design, strutture di contenuto e requisiti di consegna distinti.",
       context:
         "La consegna di siti web per più clienti e contesti studio ha richiesto esecuzione tecnica coerente attraverso requisiti di brand variabili. Il lavoro ha coperto dall'impostazione iniziale al deployment in produzione, includendo implementazione di layout responsive, sviluppo di componenti UI e integrazione dei contenuti — mantenendo i codebase manutenibili attraverso progetti paralleli.",
       challenges: [

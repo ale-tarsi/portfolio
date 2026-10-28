@@ -12,7 +12,7 @@ const it: Dictionary = {
   },
 
   hero: {
-    badge: "Disponibile — Preferibilmente in remoto",
+    badge: "Disponibile per progetti — In remoto",
     line1: "Design. Sviluppo.",
     line2: "",
     accent: "Continuità.",
@@ -67,13 +67,13 @@ const it: Dictionary = {
   },
 
   finalCTA: {
-    badge: "In cerca",
-    heading1: "Cerco un team che consideri",
-    heading2: "qualità ingegneristica e qualità del prodotto",
-    heading3: "parte dello stesso lavoro.",
+    badge: "Collaborazioni",
+    heading1: "Costruisco prodotti digitali",
+    heading2: "solidi e progettati con cura",
+    heading3: "per PMI e professionisti.",
     description:
-      "Sto valutando ruoli Frontend e Full Stack — idealmente in un contesto orientato al prodotto dove gli ingegneri partecipano davvero a cosa si costruisce e perché. In remoto o a Bologna.",
-    primary: "Inizia una conversazione",
+      "Con AtavicoLabs sviluppo software su misura, strumenti operativi e automazioni AI. Raccontami il processo che oggi ti costa più tempo: partiamo da lì. In remoto o a Bologna.",
+    primary: "Parliamone",
     secondary: "Di più su di me",
   },
 
@@ -84,16 +84,16 @@ const it: Dictionary = {
     headingAccent: "Continuo a pensare a entrambe le cose.",
     p1: "Ho studiato Product Design all’Accademia Poliarte di Ancona. Più della forma visiva, mi è rimasto il modo in cui struttura, gerarchia e flusso delle informazioni determinano se qualcosa funziona davvero.",
     p2: "Ho imparato a costruire software alla 42 Roma Luiss — un percorso peer-to-peer basato su progetti, senza lezioni frontali né curricolo formale, dove tutto si impara scrivendo codice reale con vincoli reali. Il passaggio è stato deliberato: molte delle scelte che incidono sull’esperienza utente accadono nel codice, non nei file di design.",
-    p3: "Da allora ho lavorato nel frontend engineering in Leonardo S.p.A. e IOOOTA Srl, costruendo interfacce e funzionalità per prodotti web e mobile in team strutturati. In parallelo porto avanti AtavicoLabs, dove lavoro su sviluppo prodotto, tooling operativo e automazione dei workflow.",
-    p4: "Cerco un ruolo Frontend o Full Stack in un team orientato al prodotto — un contesto in cui qualità dell’interfaccia, qualità del prodotto e qualità ingegneristica siano trattate come parte dello stesso lavoro.",
+    p3: "Da allora ho lavorato nel frontend engineering in un'azienda IoT e di building automation e a progetti del percorso 42 con Leonardo ed Engineering, costruendo interfacce e funzionalità per prodotti web e mobile in team strutturati. In parallelo porto avanti AtavicoLabs, dove lavoro su sviluppo prodotto, tooling operativo e automazione dei workflow.",
+    p4: "Lavoro come libero professionista con AtavicoLabs: sviluppo prodotti digitali, siti, strumenti operativi e automazioni per PMI e professionisti, dove qualità dell’interfaccia, del prodotto e del codice sono parte dello stesso lavoro.",
     stackLabel: "Stack",
     valuesLabel: "Come lavoro",
     ctaText:
-      "Di solito studio con attenzione team e ruoli prima di scrivere. Se pensi che ci sia una buona compatibilità, mi farà piacere parlarne.",
+      "Se hai un processo manuale da automatizzare o un prodotto da costruire, scrivimi: ti rispondo con un’idea concreta di come procedere.",
     ctaButton: "Contattami",
     metaTitle: "Chi sono",
     metaDescription:
-      "Sviluppatore Frontend e Full Stack con background nel Product Design. Disponibile per ruoli in remoto.",
+      "Sviluppatore Full Stack e product designer. Disponibile per progetti in remoto con AtavicoLabs.",
   },
 
   experience: {
@@ -172,7 +172,7 @@ const it: Dictionary = {
     contactFormAriaLabel: "Modulo di contatto",
     metaTitle: "Contatti",
     metaDescription:
-      "Contatta Alessandro Tarsi — disponibile per ruoli frontend e full stack, in remoto o a Bologna.",
+      "Contatta Alessandro Tarsi — disponibile per progetti di sviluppo e automazione, in remoto o a Bologna.",
   },
 
   notFound: {

@@ -19,7 +19,7 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <>
-      <Hero dict={dict.hero} />
+      <Hero dict={dict.hero} locale={locale} />
       <Intro dict={dict.intro} />
       <SelectedProjects dict={dict.selectedProjects} locale={locale} />
       <FocusAreas dict={dict.focusAreas} />

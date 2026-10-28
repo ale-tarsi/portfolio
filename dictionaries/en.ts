@@ -10,7 +10,7 @@ const en = {
   },
 
   hero: {
-    badge: "Available — Preferably remote-first",
+    badge: "Available for projects — Remote",
     line1: "Design. Development.",
     line2: "",
     accent: "Continuity.",
@@ -65,13 +65,13 @@ const en = {
   },
 
   finalCTA: {
-    badge: "Currently looking",
-    heading1: "Looking for a team that treats",
-    heading2: "engineering and product quality",
-    heading3: "as part of the same work.",
+    badge: "Work with me",
+    heading1: "I build solid digital products",
+    heading2: "designed with care",
+    heading3: "for small businesses and professionals.",
     description:
-      "I’m exploring Frontend and Full Stack roles — ideally in a product-focused environment where engineers are involved in what gets built and why. Remote or based in Bologna.",
-    primary: "Start a conversation",
+      "Through AtavicoLabs I build custom software, operational tools, and AI automations. Tell me about the process that costs you the most time today: we start there. Remote or Bologna-based.",
+    primary: "Let’s talk",
     secondary: "More about me",
   },
 
@@ -82,16 +82,16 @@ const en = {
     headingAccent: "Still thinking about both.",
     p1: "I studied Product Design at Accademia Poliarte in Ancona. What stayed with me most wasn’t visual styling, but the way structure, hierarchy, and information flow determine whether something actually works.",
     p2: "I started building software through 42 Roma Luiss — a peer-to-peer, project-based programme with no lectures or formal curriculum, where you learn by writing real code against real constraints. The shift was deliberate: many of the choices that shape user experience happen in code, not in design files.",
-    p3: "Since then I’ve worked on frontend engineering at Leonardo S.p.A. and IOOOTA Srl, building interfaces and features for web and mobile products in structured teams. In parallel, I run AtavicoLabs, where I work on product development, operational tooling, and workflow automation.",
-    p4: "I’m looking for a Frontend or Full Stack role in a product-focused team — somewhere that treats interface quality, product quality, and engineering quality as part of the same work.",
+    p3: "Since then I’ve worked on frontend engineering at an IoT and building automation company, and on 42 programme projects with Leonardo and Engineering, building interfaces and features for web and mobile products in structured teams. In parallel, I run AtavicoLabs, where I work on product development, operational tooling, and workflow automation.",
+    p4: "I work as an independent professional through AtavicoLabs: digital products, websites, operational tools, and automations for small businesses and professionals, where interface, product, and code quality are part of the same work.",
     stackLabel: "Stack",
     valuesLabel: "How I work",
     ctaText:
-      "I usually look carefully at teams and roles before reaching out. If you think there’s a strong fit, I’d be glad to talk.",
+      "If you have a manual process to automate or a product to build, get in touch: I’ll reply with a concrete idea of how to proceed.",
     ctaButton: "Get in touch",
     metaTitle: "About",
     metaDescription:
-      "Frontend and Full Stack Developer with a background in Product Design. Available for remote roles.",
+      "Full Stack Developer and product designer. Available for remote projects through AtavicoLabs.",
   },
 
   experience: {
@@ -106,7 +106,7 @@ const en = {
     ctaButton: "Get in touch",
     metaTitle: "Experience",
     metaDescription:
-      "Work history, education, and professional background of Alessandro Tarsi — Frontend and Full Stack Developer.",
+      "Work history, education, and professional background of Alessandro Tarsi — Full Stack Developer.",
   },
 
   projects: {
@@ -170,7 +170,7 @@ const en = {
     contactFormAriaLabel: "Contact form",
     metaTitle: "Contact",
     metaDescription:
-      "Get in touch with Alessandro Tarsi — open to frontend and full stack roles, remote or Bologna-based.",
+      "Get in touch with Alessandro Tarsi — open to development and automation projects, remote or Bologna-based.",
   },
 
   notFound: {

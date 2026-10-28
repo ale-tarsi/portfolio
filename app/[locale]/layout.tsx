@@ -23,28 +23,28 @@ export async function generateMetadata({
 
   return {
     title: {
-      default: "Alessandro Tarsi — Frontend & Full Stack Developer",
+      default: "Alessandro Tarsi — Full Stack Developer · AtavicoLabs",
       template: "%s — Alessandro Tarsi",
     },
     description: isIT
-      ? "Sviluppatore Frontend e Full Stack con background nel Product Design. Focalizzato su prodotti digitali, strumenti operativi e implementazione curata."
-      : "Product-minded Frontend and Full Stack Developer with a Product Design background. Focused on digital products, operational tools, and thoughtful implementation.",
+      ? "Sviluppatore Full Stack e product designer. Con AtavicoLabs realizzo prodotti digitali solidi, strumenti operativi e automazioni per PMI e professionisti."
+      : "Full Stack Developer and product designer. Through AtavicoLabs I build solid digital products, operational tools, and automations for small businesses and professionals.",
     openGraph: {
       type: "website",
       locale: isIT ? "it_IT" : "en_US",
       url: "https://alessandrotarsi.com",
       siteName: "Alessandro Tarsi",
-      title: "Alessandro Tarsi — Frontend & Full Stack Developer",
+      title: "Alessandro Tarsi — Full Stack Developer · AtavicoLabs",
       description: isIT
-        ? "Sviluppatore Frontend e Full Stack con background nel Product Design."
-        : "Product-minded Frontend and Full Stack Developer with a Product Design background.",
+        ? "Sviluppatore Full Stack e product designer, fondatore di AtavicoLabs."
+        : "Full Stack Developer and product designer, founder of AtavicoLabs.",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Alessandro Tarsi — Frontend & Full Stack Developer",
+      title: "Alessandro Tarsi — Full Stack Developer · AtavicoLabs",
       description: isIT
-        ? "Sviluppatore Frontend e Full Stack con background nel Product Design."
-        : "Product-minded Frontend and Full Stack Developer with a Product Design background.",
+        ? "Sviluppatore Full Stack e product designer, fondatore di AtavicoLabs."
+        : "Full Stack Developer and product designer, founder of AtavicoLabs.",
     },
     robots: {
       index: true,

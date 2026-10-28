@@ -17,7 +17,7 @@ const experienceEN: ExperienceItem[] = [
     ],
   },
   {
-    company: "IOOOTA Srl",
+    company: "IoT & Building Automation Company",
     role: "Frontend Developer",
     period: "Oct 2024 — Mar 2026",
     location: "Remote, Italy",
@@ -26,26 +26,11 @@ const experienceEN: ExperienceItem[] = [
       "Frontend development across multiple products in an IoT and building automation company. Contributed to web management platforms, a cross-platform mobile app (iOS/Android), real-time control interfaces, and a corporate website revamp — working with Angular, React, Ionic, and Next.js across a range of enterprise clients.",
     highlights: [
       "Built the frontend for a thermal plant management webapp with real-time WebSocket data, a graphical control interface, and weekly scheduling of heating and cooling operations",
-      "Developed feature modules for the Gabetti Real Estate mobile app (Ionic, iOS/Android), including onboarding flows, a corporate welfare integration via external REST API, and a maintenance request section",
+      "Developed feature modules for a real estate mobile app (Ionic, iOS/Android), including onboarding flows, a corporate welfare integration via external REST API, and a maintenance request section",
       "Implemented bulk action functionality and resolved critical demo-blocking bugs for an enterprise RSA (assisted living) management webapp",
-      "Contributed to the Klima IoT climate control system — integrating room-level device bindings and building seasonal switching (summer/winter) with both single and bulk operation support",
-      "Led the full revamp of iooota.com using Next.js, TypeScript, and Tailwind CSS, restructuring content for B2B communication with SEO and metadata improvements",
+      "Contributed to an IoT climate control system — integrating room-level device bindings and building seasonal switching (summer/winter) with both single and bulk operation support",
+      "Led the full revamp of the company's corporate website using Next.js, TypeScript, and Tailwind CSS, restructuring content for B2B communication with SEO and metadata improvements",
       "Designed UI mockups for the thermal plant control interface, presented internally and used as the implementation reference across the team",
-    ],
-  },
-  {
-    company: "Leonardo S.p.A.",
-    role: "Frontend Intern",
-    period: "Aug 2023 — Sep 2023",
-    location: "Rome, Italy",
-    type: "work",
-    description:
-      "Two-month internship contributing to a web-based internal event management platform. Worked on the Angular frontend, collaborated with a Java backend team, and applied security-conscious development practices.",
-    highlights: [
-      "Built and refined UI components for an internal event management platform using Angular",
-      "Collaborated with a Java backend team to align API contracts and data structures",
-      "Implemented responsive layouts ensuring cross-device compatibility",
-      "Applied security awareness practices in line with OWASP guidelines",
     ],
   },
 ];
@@ -67,7 +52,7 @@ const experienceIT: ExperienceItem[] = [
     ],
   },
   {
-    company: "IOOOTA Srl",
+    company: "Azienda IoT e Building Automation",
     role: "Frontend Developer",
     period: "Ott 2024 — Mar 2026",
     location: "Da remoto, Italia",
@@ -76,26 +61,11 @@ const experienceIT: ExperienceItem[] = [
       "Sviluppo frontend su più prodotti in un'azienda IoT e building automation. Contributo a piattaforme di gestione web, un'app mobile cross-platform (iOS/Android), interfacce di controllo real-time e il rifacimento del sito corporate — con Angular, React, Ionic e Next.js per clienti enterprise.",
     highlights: [
       "Costruito il frontend per una webapp di gestione degli impianti termici con dati WebSocket in tempo reale, un'interfaccia di controllo grafica e pianificazione settimanale delle operazioni di riscaldamento e raffreddamento",
-      "Sviluppato moduli funzionali per l'app mobile Gabetti Real Estate (Ionic, iOS/Android), tra cui flussi di onboarding, un'integrazione welfare aziendale via REST API esterna e una sezione per le richieste di manutenzione",
+      "Sviluppato moduli funzionali per un'app mobile real estate (Ionic, iOS/Android), tra cui flussi di onboarding, un'integrazione welfare aziendale via REST API esterna e una sezione per le richieste di manutenzione",
       "Implementato funzionalità di azioni bulk e risolto bug critici che bloccavano le demo per una webapp enterprise di gestione RSA (case di cura assistita)",
-      "Contributo al sistema di climatizzazione IoT Klima — integrando binding di dispositivi a livello di stanza e switching stagionale edificio (estate/inverno) con supporto per operazioni singole e massicce",
-      "Guidato il rifacimento completo di iooota.com con Next.js, TypeScript e Tailwind CSS, ristrutturando i contenuti per la comunicazione B2B con miglioramenti a SEO e metadata",
+      "Contributo a un sistema di climatizzazione IoT — integrando binding di dispositivi a livello di stanza e switching stagionale edificio (estate/inverno) con supporto per operazioni singole e massicce",
+      "Guidato il rifacimento completo del sito corporate aziendale con Next.js, TypeScript e Tailwind CSS, ristrutturando i contenuti per la comunicazione B2B con miglioramenti a SEO e metadata",
       "Progettato mockup UI per l'interfaccia di controllo della centrale termica, presentati internamente e usati come riferimento di implementazione dal team",
-    ],
-  },
-  {
-    company: "Leonardo S.p.A.",
-    role: "Frontend Intern",
-    period: "Ago 2023 — Set 2023",
-    location: "Roma, Italia",
-    type: "work",
-    description:
-      "Stage di due mesi nel contributo a una piattaforma interna web-based per la gestione degli eventi aziendali. Lavoro sul frontend Angular, collaborazione con un team backend Java e applicazione di pratiche di sviluppo orientate alla sicurezza.",
-    highlights: [
-      "Costruito e perfezionato componenti UI per una piattaforma interna di gestione eventi con Angular",
-      "Collaborato con un team backend Java per allineare i contratti API e le strutture dati",
-      "Implementato layout responsive assicurando compatibilità cross-device",
-      "Applicato pratiche di sicurezza in linea con le linee guida OWASP",
     ],
   },
 ];
@@ -111,7 +81,7 @@ const educationEN: EducationItem[] = [
   },
   {
     institution: "Accademia Poliarte",
-    degree: "Bachelor's Degree in Product Design",
+    degree: "Diploma in Industrial Design (equivalent to a Bachelor's degree)",
     period: "2019 — 2021",
     location: "Ancona, Italy",
     notes:
@@ -130,7 +100,7 @@ const educationIT: EducationItem[] = [
   },
   {
     institution: "Accademia Poliarte",
-    degree: "Laurea Triennale in Product Design",
+    degree: "Diploma in Design Industriale (equipollente a laurea triennale)",
     period: "2019 — 2021",
     location: "Ancona, Italia",
     notes:
