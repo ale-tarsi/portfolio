@@ -32,7 +32,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       locale: isIT ? "it_IT" : "en_US",
-      url: "https://alessandrotarsi.com",
+      url: `https://ale-tarsi.github.io/portfolio/${locale}`,
       siteName: "Alessandro Tarsi",
       title: "Alessandro Tarsi — Full Stack Developer · AtavicoLabs",
       description: isIT
