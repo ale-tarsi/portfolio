@@ -152,7 +152,7 @@ const en = {
     label: "Contact",
     heading: "Get in touch.",
     description:
-      "I’m exploring Frontend and Full Stack roles. If you're building a product-focused team and think there’s a strong fit, I’d be happy to talk — remote or based in Bologna.",
+      "Have a product to build or a process to automate? Write to me and I’ll reply with a concrete way to start — remote or based in Bologna.",
     nameLabel: "Name",
     namePlaceholder: "Your name",
     emailLabel: "Email",

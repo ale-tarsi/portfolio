@@ -108,7 +108,7 @@ const it: Dictionary = {
     ctaButton: "Contattami",
     metaTitle: "Esperienza",
     metaDescription:
-      "Storico lavorativo, formazione e background professionale di Alessandro Tarsi — sviluppatore Frontend e Full Stack.",
+      "Storico lavorativo, formazione e background professionale di Alessandro Tarsi — sviluppatore Full Stack.",
   },
 
   projects: {
@@ -154,7 +154,7 @@ const it: Dictionary = {
     label: "Contatti",
     heading: "Contattami.",
     description:
-      "Sto valutando ruoli Frontend e Full Stack. Se stai costruendo un team orientato al prodotto e pensi che ci sia una buona compatibilità, sono disponibile a parlarne — in remoto o a Bologna.",
+      "Hai un prodotto da costruire o un processo da automatizzare? Scrivimi e ti rispondo con un modo concreto per iniziare — in remoto o a Bologna.",
     nameLabel: "Nome",
     namePlaceholder: "Il tuo nome",
     emailLabel: "Email",
