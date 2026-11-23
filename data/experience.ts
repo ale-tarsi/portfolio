@@ -52,7 +52,7 @@ const educationEN: EducationItem[] = [
   {
     institution: "Accademia Poliarte",
     degree: "Diploma in Industrial Design (equivalent to a Bachelor's degree)",
-    period: "2019 — 2021",
+    period: "2019 — 2022",
     location: "Ancona, Italy",
     notes:
       "Three-year degree covering UX/UI design, digital product development, 3D modeling, and prototyping. This foundation directly informs how I approach interface structure and product thinking in engineering work.",
@@ -71,7 +71,7 @@ const educationIT: EducationItem[] = [
   {
     institution: "Accademia Poliarte",
     degree: "Diploma in Design Industriale (equipollente a laurea triennale)",
-    period: "2019 — 2021",
+    period: "2019 — 2022",
     location: "Ancona, Italia",
     notes:
       "Laurea triennale che copre UX/UI design, sviluppo di prodotti digitali, modellazione 3D e prototipazione. Questa base informa direttamente l'approccio alla struttura delle interfacce e al pensiero di prodotto nel lavoro di ingegneria.",
