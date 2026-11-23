@@ -83,7 +83,7 @@ const en = {
     p1: "I studied Product Design at Accademia Poliarte in Ancona. What stayed with me most wasn’t visual styling, but the way structure, hierarchy, and information flow determine whether something actually works.",
     p2: "I started building software through 42 Roma Luiss — a peer-to-peer, project-based programme with no lectures or formal curriculum, where you learn by writing real code against real constraints. The shift was deliberate: many of the choices that shape user experience happen in code, not in design files.",
     p3: "Since then I’ve worked on frontend engineering at an IoT and building automation company, and on 42 programme projects with Leonardo and Engineering, building interfaces and features for web and mobile products in structured teams. In parallel, I run AtavicoLabs, where I work on product development, operational tooling, and workflow automation.",
-    p4: "I work as an independent professional through AtavicoLabs: digital products, websites, operational tools, and automations for small businesses and professionals, where interface, product, and code quality are part of the same work.",
+    p4: "I am launching AtavicoLabs: digital products, websites, operational tools, and automations for small businesses and professionals, where interface, product, and code quality are part of the same work.",
     stackLabel: "Stack",
     valuesLabel: "How I work",
     ctaText:

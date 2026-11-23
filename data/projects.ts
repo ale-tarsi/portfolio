@@ -210,46 +210,6 @@ const projectsEN: Project[] = [
     },
   },
   {
-    slug: "websites-showcase",
-    title: "Corporate & Showcase Websites",
-    subtitle: "Frontend development across multiple web properties",
-    description:
-      "Frontend development and delivery across multiple company and showcase websites — including AtavicoLabs, CODFOOD, Semylla, and related digital properties.",
-    year: "2025/26",
-    role: "Frontend Developer",
-    status: "completed",
-    featured: true,
-    coverColor: "bg-neutral-300",
-    tags: ["React", "Next.js", "TypeScript", "HTML", "CSS"],
-    body: {
-      overview:
-        "A collection of frontend web projects delivered across different company, product, and showcase contexts. Sites include AtavicoLabs, CODFOOD, Semylla, and additional web properties — each with distinct design identities, content structures, and delivery requirements.",
-      context:
-        "Website delivery for multiple clients and studio contexts required consistent technical execution across varying brand requirements. The work spanned initial scaffolding through production deployment, covering responsive layout implementation, UI component development, and content integration — while keeping codebases maintainable across concurrent engagements.",
-      challenges: [
-        {
-          title: "Consistency across multiple contexts",
-          description:
-            "Each project had distinct design and content requirements while sharing the same underlying technology. Maintaining clean, maintainable code across concurrent engagements required clear component and layout architecture that scaled across projects without creating unnecessary coupling.",
-        },
-        {
-          title: "Responsive layout implementation",
-          description:
-            "Translating design intent accurately into responsive implementations required careful attention to spacing systems, typographic hierarchy, breakpoint behaviour, and cross-device consistency — particularly for content-heavy layouts.",
-        },
-        {
-          title: "Production delivery workflow",
-          description:
-            "Managing frontend delivery across multiple active projects in parallel required organised project structure, reliable build processes, and attention to deployment consistency across different hosting environments.",
-        },
-      ],
-      approach:
-        "All sites built with React and Next.js in TypeScript for type safety and long-term maintainability. Each project structured around a shared layout model with site-specific components and content. Focused on clean semantic HTML, responsive CSS, and production-ready output.",
-      outcome:
-        "Multiple sites delivered and live across company, product, and showcase contexts. The shared technology base kept development efficient while the component structure allowed each site to maintain a distinct visual identity.",
-    },
-  },
-  {
     slug: "ft-transcendence",
     title: "ft_transcendence",
     subtitle:
@@ -542,46 +502,6 @@ const projectsIT: Project[] = [
         "Frontend costruito con Next.js e componenti dashboard React. Backend in Python con FastAPI per il layer API, SQLAlchemy come ORM e PostgreSQL per la persistenza. Docker Compose utilizzato per la coerenza dell'ambiente di sviluppo locale. Ingestion e normalizzazione dei dati gestite in moduli di servizio dedicati, separati dal routing API per mantenere ogni layer testabile e sostituibile.",
       outcome:
         "Piattaforma core consegnata con importazione dei rendiconti, pipeline di normalizzazione e dashboard di analisi funzionali. L'architettura separa nettamente le responsabilità di ingestion, storage e presentazione — rendendola manutenibile e semplice da estendere con ulteriori sorgenti dati o viste analitiche.",
-    },
-  },
-  {
-    slug: "websites-showcase",
-    title: "Corporate & Showcase Websites",
-    subtitle: "Sviluppo frontend su più proprietà web",
-    description:
-      "Sviluppo frontend e consegna su più siti corporate e showcase — tra cui AtavicoLabs, CODFOOD, Semylla e proprietà digitali correlate.",
-    year: "2024",
-    role: "Frontend Developer",
-    status: "completed",
-    featured: true,
-    coverColor: "bg-neutral-300",
-    tags: ["React", "Next.js", "TypeScript", "HTML", "CSS"],
-    body: {
-      overview:
-        "Una raccolta di progetti web frontend consegnati in diversi contesti aziendali, di prodotto e showcase. I siti includono AtavicoLabs, CODFOOD, Semylla e ulteriori proprietà web — ciascuno con identità di design, strutture di contenuto e requisiti di consegna distinti.",
-      context:
-        "La consegna di siti web per più clienti e contesti studio ha richiesto esecuzione tecnica coerente attraverso requisiti di brand variabili. Il lavoro ha coperto dall'impostazione iniziale al deployment in produzione, includendo implementazione di layout responsive, sviluppo di componenti UI e integrazione dei contenuti — mantenendo i codebase manutenibili attraverso progetti paralleli.",
-      challenges: [
-        {
-          title: "Coerenza in più contesti",
-          description:
-            "Ogni progetto aveva requisiti distinti di design e contenuto pur condividendo la stessa tecnologia sottostante. Mantenere codice pulito e manutenibile attraverso progetti paralleli richiedeva una chiara architettura di componenti e layout che si scalasse tra progetti senza creare coupling non necessario.",
-        },
-        {
-          title: "Implementazione di layout responsive",
-          description:
-            "Tradurre accuratamente l'intento di design in implementazioni responsive richiedeva attenzione ai sistemi di spacing, alla gerarchia tipografica, al comportamento dei breakpoint e alla coerenza cross-device — in particolare per layout ricchi di contenuti.",
-        },
-        {
-          title: "Workflow di consegna in produzione",
-          description:
-            "Gestire la consegna frontend su più progetti attivi in parallelo richiedeva struttura di progetto organizzata, processi di build affidabili e attenzione alla coerenza del deployment in diversi ambienti di hosting.",
-        },
-      ],
-      approach:
-        "Tutti i siti costruiti con React e Next.js in TypeScript per type safety e manutenibilità a lungo termine. Ogni progetto strutturato attorno a un modello di layout condiviso con componenti e contenuti specifici per sito. Focus su HTML semantico pulito, CSS responsive e output pronto per la produzione.",
-      outcome:
-        "Più siti consegnati e live in contesti aziendali, di prodotto e showcase. La base tecnologica condivisa ha mantenuto lo sviluppo efficiente mentre la struttura dei componenti ha consentito a ciascun sito di mantenere un'identità visiva distinta.",
     },
   },
   {

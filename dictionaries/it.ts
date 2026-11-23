@@ -85,7 +85,7 @@ const it: Dictionary = {
     p1: "Ho studiato Product Design all’Accademia Poliarte di Ancona. Più della forma visiva, mi è rimasto il modo in cui struttura, gerarchia e flusso delle informazioni determinano se qualcosa funziona davvero.",
     p2: "Ho imparato a costruire software alla 42 Roma Luiss — un percorso peer-to-peer basato su progetti, senza lezioni frontali né curricolo formale, dove tutto si impara scrivendo codice reale con vincoli reali. Il passaggio è stato deliberato: molte delle scelte che incidono sull’esperienza utente accadono nel codice, non nei file di design.",
     p3: "Da allora ho lavorato nel frontend engineering in un'azienda IoT e di building automation e a progetti del percorso 42 con Leonardo ed Engineering, costruendo interfacce e funzionalità per prodotti web e mobile in team strutturati. In parallelo porto avanti AtavicoLabs, dove lavoro su sviluppo prodotto, tooling operativo e automazione dei workflow.",
-    p4: "Lavoro come libero professionista con AtavicoLabs: sviluppo prodotti digitali, siti, strumenti operativi e automazioni per PMI e professionisti, dove qualità dell’interfaccia, del prodotto e del codice sono parte dello stesso lavoro.",
+    p4: "Sto avviando AtavicoLabs: sviluppo prodotti digitali, siti, strumenti operativi e automazioni per PMI e professionisti, dove qualità dell’interfaccia, del prodotto e del codice sono parte dello stesso lavoro.",
     stackLabel: "Stack",
     valuesLabel: "Come lavoro",
     ctaText:

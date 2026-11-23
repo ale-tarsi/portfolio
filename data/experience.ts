@@ -2,21 +2,6 @@ import { ExperienceItem, EducationItem, FocusArea } from "@/types";
 
 const experienceEN: ExperienceItem[] = [
   {
-    company: "AtavicoLabs",
-    role: "Freelance Developer",
-    period: "May 2024 — Present",
-    location: "Remote",
-    type: "freelance",
-    description:
-      "Independent studio focused on digital product development, web applications, and workflow automation. Handles full delivery cycles — from scoping and interface design to implementation and deployment — for small teams and early-stage products.",
-    highlights: [
-      "Built operational tools and internal dashboards tailored to specific team workflows",
-      "Developed workflow automation systems integrating third-party APIs and custom business logic",
-      "Designed and implemented product-oriented web interfaces with a focus on clarity and usability",
-      "Managed end-to-end delivery on multiple concurrent engagements, maintaining consistent quality and scope control",
-    ],
-  },
-  {
     company: "IoT & Building Automation Company",
     role: "Frontend Developer",
     period: "Oct 2024 — Mar 2026",
@@ -36,21 +21,6 @@ const experienceEN: ExperienceItem[] = [
 ];
 
 const experienceIT: ExperienceItem[] = [
-  {
-    company: "AtavicoLabs",
-    role: "Freelance Developer",
-    period: "Mag 2024 — Presente",
-    location: "Da remoto",
-    type: "freelance",
-    description:
-      "Studio indipendente focalizzato su sviluppo di prodotti digitali, applicazioni web e automazione dei workflow. Gestisce cicli di consegna completi — dalla definizione dello scope e del design dell'interfaccia all'implementazione e al deployment — per team di piccole dimensioni e prodotti in fase iniziale.",
-    highlights: [
-      "Realizzato strumenti operativi e dashboard interne su misura per i workflow specifici dei team",
-      "Sviluppato sistemi di automazione dei workflow con integrazione di API di terze parti e logica di business personalizzata",
-      "Progettato e implementato interfacce web orientate al prodotto con attenzione a chiarezza e usabilità",
-      "Gestito la consegna end-to-end su più progetti contemporanei, mantenendo qualità e controllo dello scope costanti",
-    ],
-  },
   {
     company: "Azienda IoT e Building Automation",
     role: "Frontend Developer",
